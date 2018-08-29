@@ -1,0 +1,113 @@
+{% extends "../common/base.html" %}
+{% block title %} 会员登录 {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="/public/css/base.css">
+<link rel="stylesheet" href="/public/css/login.css">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="tips">
+        <p>用户名不能为空</p>
+    </div>
+    <div class="login">
+        <h3>登录</h3>
+        <form action="" method="">
+
+            <div class="ff one">
+                <i></i>
+                <input type="text" placeholder="请输入会员账号" class="input zhang">
+            </div>
+            <div class="ff two">
+                <i></i>
+                <input type="password" placeholder="请输入密码" class="input password">
+            </div>
+
+
+            <div class="theree">
+                <ul class="clearfix">
+                    <li class="fl">
+                        <label for="rememberMe">
+                        <input type="checkbox" class="ff" id="rememberMe">&nbsp;&nbsp;
+                        <span>记住我</span>
+                    </label>
+                    </li>
+                    <li class="fg">
+                        {% if ctx.session.referrer %}
+                        <a href="forget?referrer={{ctx.session.referrer}}">忘记密码</a>
+                        {% else %}
+                        <a href="forget?referrer={{ctx.get('Referrer')}}">忘记密码</a>
+                        {% endif %}
+
+                    </li>
+                </ul>
+            </div>
+
+            <div class="focu verify">
+                <input type="button"> 登录
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    var tip = function (tip) {
+        $('.tips p').html(tip).fadeIn(500).delay(1500).fadeOut(500);
+    }
+
+    $(function () {
+
+        $('.verify').on('click', function () {
+
+            var $btn = $(this);
+
+
+            var mobile = $.trim($('.zhang').val());
+            var password = $.trim($('.password').val());
+            var ischecked = $("#rememberMe").prop("checked");
+            if (!mobile) { //如果没输入
+                tip('请输入会员账号');
+                return false;
+            }
+            if (!password) { //如果没输入
+                tip('请输入密码');
+                return false;
+            }
+
+
+            $.ajax({
+                url: "",
+                type: "post",
+                data: {
+                    memberName: mobile,
+                    password: password,
+                    rememberMe: ischecked,
+                    _csrf: "{{ctx.csrf}}"
+                },
+                success: function (data) {
+                    if (data.code != 200) {
+                        tip(data.message);
+                        return;
+                    }
+
+
+
+                    location.href = "{{ctx.session.referrer}}"||"{{ctx.get('Referrer')}}"||"/"
+                },
+                error: function () {
+                    tip('网络繁忙！');
+                }
+
+            })
+
+
+        })
+
+    })
+
+</script> {% endblock %}

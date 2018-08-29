@@ -1,0 +1,92 @@
+{% extends "../common/base.html" %}
+
+{% block title %}
+会员中心
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/public/css/base.css">
+<link rel="stylesheet" href="/public/css/fuwu_baoming.css">
+{% endblock %}
+{% block content %}
+<div class="nav_tab">
+    <div class="container clearfix">
+
+        <!--左侧菜单-->
+        {% include "../common/member_left.html" %}
+        <!--左侧菜单-->
+
+        <div class="right_car">
+            <!-- 报名管理报名start -->
+            <div class="main">
+
+                <div class="concar acv">
+                    <table width="100%" border="0" cellspacing="0" align="center" border="1" style="border:1px solid #dddddd;">
+                        <tr class="thead">
+                            <td style="text-decoration: none;">{{typeName}}名称</td>
+                            <td>{{typeName}}开始-结束时间</td>
+                            <td>报名状态</td>
+                            <td style="text-decoration:none">操作</td>
+                        </tr>
+                        {% for item in data.thisPage.list %}
+                        <tr>
+                            <td><a href="/activity/detail?id={{item.activity.id}}">{{item.activity.title}}</a></td>
+                            <td>{{item.activity.beginTime}} — {{item.activity.endTime}}</td>
+                            {% if item.status=="报名失败" %}
+                            <td class="error">{{item.status}}</td>
+                            {% elif item.status=="报名成功" %}
+                            <td>{{item.status}}</td>
+                            {% else %}
+                            <td class="success">{{item.status}}</td>
+                            {% endif %}
+                            <td>
+                                <a href="applicationDetail?typeName={{typeName}}&id={{item.id}}" class="btn_fl">查看详情</a>
+                            </td>
+                        </tr>
+                      
+
+                 
+                        {% else %}
+                        <div class="dd"></div>
+
+                        {% endfor %}
+
+                    </table>
+
+                    <!--分页-->
+                    {% include "../common/page.html" %}
+                    <!--分页-->
+
+                </div>
+                <!-- 培训报名end-->
+
+            </div>
+            <!-- 报名管理报报名end -->
+        </div>
+        <!-- 右边显示 -->
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+<script>
+    $(function () {
+        $(".one").on("click", function () {
+            $(this).addClass("one_actcar");
+            $(this).parent().siblings().children(".two").removeClass("two_actcar");
+            $(this).next().show().parent().siblings().find("ol").hide();
+
+        });
+
+        $(".two").on("click", function () {
+            $(this).addClass("two_actcar");
+            $(this).parent().siblings().children(".one").removeClass("one_actcar");
+            $(this).next().show().parent().siblings().find("ol").hide();
+        });
+    })
+</script>
+{% endblock %}

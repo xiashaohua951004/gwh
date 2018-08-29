@@ -1,0 +1,158 @@
+﻿@charset "utf-8";
+*{padding:0;margin:0;box-sizing:border-box; font-family: "Microsoft YaHei"; font-size: 14px;color: #333333; text-decoration:none; list-style:none;}
+div{display: block;}
+img{border: 0px;}
+html{min-width: 1000px;overflow-x:auto;}
+th,td{
+	background-clip: padding-box; /*背景被裁剪到内边距框*/
+	position:relative;
+}
+.cont{
+	width: 100%;
+}
+.cont-log{
+	width: 1000px;
+	margin: 10px auto;
+	overflow: hidden;
+}
+.logo{
+	float: left;
+}
+.cont-login{
+	float: right;
+	height:70px;
+	line-height: 70px;
+}
+.cont-login>a{
+	display: inline-table;
+	padding-left: 10px;
+	background-repeat: no-repeat;
+	background-size: 19px 19px;
+	background-position: 0 center;
+}
+.cont-login>a:first-child{
+	background-image:url("../img/login.png");
+	padding-left: 24px;
+	padding-right: 10px;
+}
+.logo a{
+	display: block;
+	width: 477px;
+	height:70px;
+}
+/*-----------------logo-----------------------*/
+.content-nav{
+	width: 100%;
+	background-color: #c52620;
+	height: 70px;
+}
+.nav{
+	width: 1000px;
+	margin: 0 auto;
+}
+.nav .nav-ul>li{
+	margin-left: -4px;
+	display: inline-block;
+	position: relative;
+}
+.nav .nav-ul>li>a{
+	display: block;
+	line-height: 70px;
+	text-align: center;
+	padding: 0 38px;
+	color: #ffffff;
+	font-size: 16px;
+}
+.nav .nav-ul>li>a:hover,.nav .nav-ul>li>a:hover .active{
+	background-color: #9f0f09;
+}
+.xial{
+	position: absolute;
+	width: 100%;
+	padding-top: 14px;
+	padding-bottom: 10px;
+	text-align: center;
+	z-index: 10000;
+	background-color: rgba(0,0,0,0.75);
+	display: none;
+}
+
+.xial>ul>li{
+	padding: 6px 0px;
+}
+.xial>ul>li>a{
+	display: block;
+	line-height: 28px;
+	color: #ffffff;
+	font-size: 16px;
+}
+.xial>ul>li>a:hover{
+	background-color: rgba(0,0,0,0.65);
+}
+/*-----------------------------底部公司信息---------------------------*/
+.footer{width: 100%;background-color: #2d3236;}
+.footer ul{width:1000px;}
+.footer ul li{display: inline-table;line-height:50px;height: 50px; color: #ffffff;}
+.footer ul li a{ color: #ffffff; display: inline-block;padding: 0 19px;}
+.footer ul li:nth-child(1) a{padding-left: 0px;}
+.footer ul li a:hover{color: #ffffff;}
+
+.bottom{width: 1000px;margin: 0 auto;padding:14px 0 14px 0;position: relative;overflow: hidden;}
+.bottom p{text-align: left;line-height: 30px; color: #9d9d9d}
+
+.wei{text-align: center;font-size: 10px;position: absolute;top: 35px;right: 0px;}
+.wei p{font-size: 10px; text-align: center; color: #ffffff}
+
+.right{position: fixed;z-index: 150;top: 256px;right: 0px;}
+.right ul li{ position: relative;margin-top: 4px;}
+.right ul li:hover{cursor: pointer;}
+.right .top{display:none; ;}
+.right ul li span{display: block;width: 56px;height: 56px;background-color:rgba(57,57,57,0.8); overflow: hidden;border-radius: 4px; font-size:16px;color: #ffffff;text-align: center;vertical-align:middle;}
+.right ul li span img{padding-top: 13px;}
+.right .right-xia{padding:15px 10px; position: absolute;right:80px;background-color: rgba(57,57,57,0.8); top: 0px; text-align: center;display: none;border-radius: 4px;}
+.right .right-xia:before{ 
+	    content: "";  /*:before和:after必带技能，重要性为满5颗星*/
+        display: block;
+        position: absolute;  /*日常绝对定位*/
+        top:10px;
+        width: 0;
+        height: 0;
+        border:14px solid transparent;
+        border-right-radius: 10px;
+        right:-28px;
+        border-left-color:rgba(57,57,57,0.8);}
+.right .right-xia h5{color: #ffffff;}
+.right .right-xia p{color: #e3e0e0;font-size:10px;padding: 4px 0 6px 0;}
+
+p,h1,h2,h3,h4,a,span{
+	word-wrap:break-word;
+}
+/*分页*/
+.paging{text-align: center;padding: 40px 0;width: 100%}
+.paging #pager a{display: inline-table;}
+.paging #pager a{height: 44px; line-height: 44px;padding: 0 18px; border: 1px solid #c8c8c8;text-align: center;margin: 0 5px;}
+.paging #pager a:hover,.paging #pager a:hover:active,.active{background-color: #c52620;color: #ffffff;}
+.paging #pager a .dian{border: none;}
+.paging #pager span{display: inline-table;}
+.paging #pager span{height: 44px; line-height: 44px;padding: 0 18px; border: 1px solid #c8c8c8;text-align: center;margin: 0 1px;}
+
+.wushuju{
+	width: 100%;
+	min-height: 600px;
+	background: url("../img/wushuju.png") no-repeat center;
+    margin-top: 70px;
+}
+.tab_wushuju{
+
+	background: url("../img/wushuju.png") no-repeat center;
+	margin-top: 70px;
+}
+
+
+
+
+
+
+
+
+

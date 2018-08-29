@@ -1,0 +1,128 @@
+﻿@charset "utf-8";
+
+a:hover{color: #c52620;}
+
+/*----------------------------内容-------------------------*/
+
+.img{width: 100%;height: 150px;}
+.img img{width: 100%;height: 100%;}
+
+.content{width: 1000px;margin: 0 auto;padding-top:20px;}
+.wrap{width: 100%;margin:20px 0 0 0 ;}
+.wrap-yanxiu{width: 100%;}
+.wrap-yanxiu h2,.wrap-zhenrong h2,.wrap-curri h2,.wrap-cert h2,.wrap-profit h2,.wrap-scene h2{
+	width: 100%;font-size: 18px;height: 35px; line-height: 35px;padding-left: 44px;color: #c52620;
+	margin: 34px 0 24px 0;
+	background-repeat: no-repeat;
+	background-size: 34px 33px;
+	background-position:0 center ;
+}
+.wrap-yanxiu h2{
+	background-image: url(../img/inleft1.png);
+}
+.wrap-zhenrong h2{
+	background-image: url(../img/inleft4.png);
+}
+.wrap-curri h2{
+	background-image: url(../img/inleft5.png);
+}
+.wrap-cert h2{
+	background-image: url(../img/inleft6.png);
+}
+.wrap-scene h2{
+	background-image: url(../img/inleft7.png);
+}
+.wrap-yanxiu>p{
+	line-height: 24px;font-size: 14px;text-indent:2em;color: #333333;
+}
+.contrr{
+	width: 100%;
+	background-color: #f7f7f7;
+	overflow: hidden;
+	padding: 0 16px 20px 16px;
+}
+.zhen-txt{
+	display: table;
+	position: relative;
+	width: 100%;
+	height: 120px;
+	padding-left: 100px;
+	margin-top: 20px;
+}
+.zhen-txt>p{
+	font-size: 16px;
+	line-height: 28px;
+	 display:table-cell; 
+     vertical-align:middle;  
+     width:100%;  
+     color: #333333; 
+     text-indent:2em;
+}
+.zhen-left{
+	display:table; 
+	position: absolute;
+	width: 70px;
+	height: 120px;
+	background-color: #c52620;
+	left: 0;
+	padding:0 25px;
+}
+.zhen-left p{
+	 display:table-cell;
+	font-size: 20px;
+	color: #ffffff;
+	vertical-align:middle;  
+}
+.wrap-curri-img{width: 100%;background-color: #f5f5f5;height:429px;}
+.wrap-curri img{display: block;margin: 0 auto;}
+.cert-con{
+	height: 400px;
+	width: 100%;
+	background-color: #f7f7f7;
+}
+.cert-con h3{
+	width: 100%;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 500;
+	padding: 30px 0 16px 0;
+	color: #41414c;
+	font-weight: 500;
+}
+.cert-img{width:770px;height: 312px;margin: 0 auto;}
+.wrap-scene>p{padding: 9px 0 30px 0;text-align: center;}
+/*-------------------------------课程轮播------------------------------*/
+.banner{
+	width:100%;
+	margin: 0 auto;
+}
+/*-----------------banner-----------------------*/
+#warpper{ width: 100%; height:160px;}
+.container{ width:100%; height: 100%; overflow: hidden; position: relative; }
+/*-----------------轮播图片-----------------------*/
+.imgList{ position: absolute; z-index: 5;}
+.imgList>li{float:left; width:250px;height: 160px;padding:0 3px;}
+.kongzhi{width: 100%; position: absolute;top: 40%; z-index: 10;padding: 0 14px;}
+.kongzhi span{cursor: pointer; display: block; width: 25px;height: 25px;color: #ffffff;background:rgba(0,0,0,0.5);text-align: center;line-height: 25px;opacity: 0.5;font-size: 20px;}
+.kongzhi-left{float: left;}
+.kongzhi-right{float: right;}
+.wrap-bom{
+	width: 100%;
+	height: 123px;
+	background-color: #e03428; 
+	margin: 30px 0 50px 0;
+	padding-left: 180px;
+	background-image: url(../img/yellef.png);
+	background-repeat: no-repeat;
+	background-size: 59px 54px;
+	background-position:86px  19px;
+	padding-top: 20px;
+}
+.wrap-bom span{
+	font-size: 20px;
+	color: #ffffff;
+	display: inline-block;
+	margin-right: 80px;
+	line-height: 40px;
+}
+

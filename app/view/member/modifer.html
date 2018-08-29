@@ -1,0 +1,187 @@
+{% extends "../common/base.html" %}
+{% block title %} 修改密码 {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="/public/css/base.css">
+<link rel="stylesheet" href="/public/css/fuwu_baoming.css"> {% endblock %} {% block content %}
+<div class="nav_tab">
+    <div class="container clearfix">
+
+        <!--左侧菜单-->
+        {% include "../common/member_left.html" %}
+        <!--左侧菜单-->
+
+        <div class="right_car">
+            <!-- 会员信息start -->
+            <div class="information">
+
+                <!-- 密码修改 -->
+                <div class="data">
+                    <div class="tips">
+                        <p>用户名不能为空</p>
+                    </div>
+                    <div class="title">
+                        密码修改
+                    </div>
+
+                    <div class="password">
+                        <form action="" id="myForm">
+                            <ul>
+                                <li class="li2">
+                                    <span>旧密码</span>
+                                    <input type="password" placeholder="请输入旧密码" class="mobile" name="password"
+                                           id="password">
+
+                                </li>
+                                <li class="li1">
+                                    <span>新密码</span>
+                                    <input type="password" placeholder="请输入密码" class="text4" name="newPassword"
+                                           id="newPassword">
+                                </li>
+                                <li class="li1">
+                                    <span>确认新密码</span>
+                                    <input type="password" placeholder="请再次输入密码" class="text5" name="newPassword2"
+                                           id="newPassword2">
+                                </li>
+                            </ul>
+                            <div class="btn">
+                                <input type="hidden" name="_csrf" value="{{ctx.csrf}}">
+                                <button type="button" class="btn_btn" id="submit">确定</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 会员信息end -->
+        </div>
+    </div>
+</div>
+
+
+<!-- 遮罩层 -->
+<div class="mask" id="mask">
+
+    <div class="password_1">
+        <div class="login">
+            <div class="title">
+                <span class="fl">提示</span>
+                <span class="off fr"></span>
+            </div>
+
+            <div class="success">
+                <img src="/public/img/mima_07.jpg">
+            </div>
+            <div class="shroutre">
+                <h5>密码修改成功!</h5>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %} {% block script %}
+<script>
+    $(function () {
+
+        var tip = function (tip) {
+            $('.tips p').html(tip).fadeIn(500).delay(1500).fadeOut(500);
+        }
+
+
+        $(".one").on("click", function () {
+            $(this).addClass("one_actcar");
+            $(this).parent().siblings().children(".two").removeClass("two_actcar");
+            $(this).next().show().parent().siblings().find("ol").hide();
+        });
+
+        $(".two").on("click", function () {
+            $(this).addClass("two_actcar");
+            $(this).parent().siblings().children(".one").removeClass("one_actcar");
+            $(this).next().show().parent().siblings().find("ol").hide();
+        });
+
+        function checkAll() {
+            var $password = $("#password")
+            var $newPassword = $("#newPassword")
+            var $newPassword2 = $("#newPassword2")
+            if ($password.val().length < 6 || $password.val().length > 16) {
+                tip("旧密码必须6-16位！")
+                return false
+            }
+            if ($newPassword.val().length < 6 || $newPassword.val().length > 16) {
+                tip("新密码必须6-16位！")
+                return false
+            }
+
+            if (!$.trim($password.val())) {
+                tip("请输入旧密码")
+                return false
+            }
+            if (!$.trim($newPassword2.val())) {
+                tip("请输入确认新密码")
+                return false
+            }
+
+
+            if (!$.trim($newPassword.val())) {
+                tip("请输入新密码")
+                return false
+            }
+            if ($newPassword2.val() != $newPassword.val()) {
+                tip("再次输入的新密码必须与新密码相同！")
+                return false
+            }
+            return true;
+        }
+
+        var submiting = false;
+        $("#submit").on("click", function () {
+            if (checkAll() && !submiting) {
+                submiting = true;
+                $.ajax({
+                    type: "post",
+                    url: '',
+                    data: $("#myForm").serialize(),
+                    dataType: "json",
+                    success: function (result) {
+                        if (result.code != 200) {
+                            tip(result.message)
+                            if (result.code == 403) {
+                                window.location.href = "/member/login";
+                            }
+                            return;
+                        }
+                        tip("修改成功！")
+                        // window.location.href = window.location.href;
+                        window.sessionStorage.isSuccess = "true";
+                        $("#mask").show();
+
+                    },
+                    error: function (err) {
+                        tip("修改密码出错，请检查网络！")
+                    },
+                    complete: function () {
+                        submiting = false;
+                    }
+                })
+            }
+            return false;
+        })
+
+
+        $(".off").on("click", function () {
+            $("#mask").hide();
+            window.sessionStorage.isSuccess = "false";
+            window.location.href = '/'
+        })
+
+        if (window.sessionStorage.isSuccess=="true") {
+            window.sessionStorage.isSuccess = "false";
+            window.location.href = "/";
+        }
+
+
+    })
+</script> {% endblock %}

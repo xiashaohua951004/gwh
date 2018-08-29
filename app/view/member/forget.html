@@ -1,0 +1,294 @@
+{% extends "../common/base.html" %}
+{% block title %} 重置密码 {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="/public/css/base.css">
+<link rel="stylesheet" href="/public/css/password.css">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="center">
+        <div class="title">
+            <h3>重置密码</h3>
+            <div class="tips">
+                <p>用户名不能为空</p>
+            </div>
+            <span>通过短信方式验证,重置密码</span>
+        </div>
+
+
+        <div class="form">
+            <form id="forgetPassword" action="" method="get">
+
+                <ul>
+                    <li class="li1">
+                        <span>会员手机号码:</span>
+                        <input type="text" placeholder="请输入会员手机号码" name="mobile" id="mobile" class="text1">
+                    </li>
+                    <li class="li2">
+                        <span>图形验证码</span>
+                        <input type="text" placeholder="请输入图形验证码" name="captchaCode" id="captchaCode" class="text2">
+                        <input type="hidden" name="captchaToken" id="captchaToken">
+                        <i class="mandom">
+                            <em class="em">
+                                <img id="capImg">
+                            </em>
+                        </i>
+                    </li>
+                    <li class="li2">
+                        <span>手机验证码</span>
+                        <input type="text" placeholder="请输入手机验证码" name="smsCode" id="smsCode" class="mobile">
+                        <input type="hidden" name="smsToken" id="smsToken">
+                        <em class="yan ff" id="getSMSCode">获取验证码</em>
+                    </li>
+                    <li class="li1">
+                        <span>登录密码</span>
+                        <input type="password" placeholder="请输入密码" name="password" id="password" class="text4">
+                    </li>
+                    <li class="li1">
+                        <span>确认密码</span>
+                        <input type="password" placeholder="请再次输入密码" name="password2" id="password2" class="text5">
+                    </li>
+                </ul>
+
+                <div>
+                    <input type="hidden" name="_csrf" value="{{ctx.csrf}}">
+                    <input type="button" id="submit" class="btn btnfo" id="btn" value="确定">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="mask" id="mask">
+
+    <div class="password_1">
+        <div class="login">
+            <div class="title">
+                <span class="fl">提示</span>
+                <span class="off fr"></span>
+            </div>
+
+            <div class="success">
+                <img src="/public/img/mima_07.jpg">
+            </div>
+            <div class="shroutre">
+                <h5>密码修改成功!</h5>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %} {% block script %}
+<script>
+    $(function () {
+        var tip = function (tip) {
+            $('.tips p').html(tip).fadeIn(500).delay(1500).fadeOut(500);
+        }
+
+        var $mobile = $("#mobile");
+        var $captchaCode = $("#captchaCode");
+        var $captchaToken = $("#captchaToken");
+        var $smsCode = $("#smsCode");
+
+        var $smsToken = $("#smsToken")
+        var $password = $("#password")
+        var $password2 = $("#password2")
+
+
+
+        
+
+
+        var timer;
+        var count = 60;
+        var verify = $('#getSMSCode');
+        var state = 0;
+        function dom() {
+            if (state == 0) {
+                state = 1;
+                time = function () {
+                    if (count > 0) {
+                        count -= 1;
+                        verify.html(count + "秒");
+                      
+                        verify.addClass("disabled");
+                        verify.off("click");
+                    } else {
+                        clearInterval(timer);
+                        count = 60;
+                        verify.html('60秒再次获取验证码');
+                     
+                        state = 0;
+                        verify.removeClass("disabled");
+                        bindSent();
+                    }
+                }
+                timer = setInterval(time, 1000);
+            }
+
+
+        }
+
+
+
+
+
+
+
+        /*图形码*/
+        $(".mandom").on("click", function () {
+            var timespan = parseInt(Math.random() * 100);
+            $.ajax({
+                type: "get",
+                url: '/captcha/get',
+                data: {
+                    timespan: timespan
+                },
+                dataType: "json",
+                success: function (result) {
+                    $("#capImg").attr("src", result.data.image);
+                    $("#captchaToken").val(result.data.token);
+                }
+            })
+        }).trigger("click");
+
+        /*校验发送短信*/
+        function checkSendSMS() {
+            if (!(/^1\d{10}$/.test($mobile.val()))) {
+                tip('请输入正确的手机号码！');
+                return false;
+            }
+            if ($captchaCode.val().length != 5) {
+                tip('请输入5位图片验证码！');
+                return false;
+            }
+            return true;
+        }
+
+        function checkAll() {
+            if (!checkSendSMS()) {
+                return false;
+            }
+            if (!(/^\d{6}$/.test($smsCode.val()))) {
+                tip('请输入6位短信验证码！');
+                return false;
+            }
+            //mima
+
+
+            if (!(/^[a-zA-Z0-9\S]{6,16}$/).test($password.val())) {
+                tip("请输入密码6-16位");
+                return false;
+            }
+            
+
+              if(!$.trim($password.val())) {
+                tip("请输入登录密码");
+                return false;
+            }
+            if(!$.trim($password2.val())) {
+                tip("请输入确认密码");
+                return false;
+            }
+
+
+
+            if ($password2.val() != $password.val()) {
+                tip("两次密码输入的不一样,请重新输入");
+                return false;
+            }
+
+            if (!$captchaToken) {
+                tip("请先获取验证码");
+                return false;
+            }
+            return true;
+
+        }
+
+
+        var submiting = false;
+
+
+
+        function bindSent(){
+            $("#getSMSCode").on("click", function () {
+                if (checkSendSMS() && !submiting) {
+                    submiting = true;
+                
+                    $.ajax({
+                        type: "get",
+                        url: '/sms/send',
+                        data: $("#forgetPassword").serialize(),
+                        dataType: "json",
+                    
+                        success: function (result) {
+                            if (result.code != 200) {
+                            
+                                tip(result.message);
+                                return false;
+                            }
+                            //倒计时逻辑
+                            $smsToken.val(result.data.token)
+
+                        
+                    
+                        
+                            dom()
+                            
+                            //倒计时逻辑
+
+
+                        },
+                        error:function() {
+                            tip("网络异常，请稍后再试")
+                        },
+                        complete: function () {
+                            submiting = false;
+                        }
+                    });
+                }
+            })
+        }
+        bindSent()
+        $("#submit").on("click", function () {
+            if (checkAll() && !submiting) {
+                submiting = true;
+                $.ajax({
+                    type: "post",
+                    url: '/member/forget',
+                    data: $("#forgetPassword").serialize(),
+                    dataType: "json",
+                    success: function (result) {
+                        if (result.code != 200) {
+                            tip(result.message);
+                            return;
+                        }
+                        //提交成功逻辑
+                        window.sessionStorage.isSuccess = "true";
+                        $("#mask").show();
+                    },
+                    error:function() {
+                        tip("网络异常，请稍后再试")
+                    },
+                    complete: function () {
+                        submiting = false;
+                    }
+                });
+            }
+        })
+
+        $(".off").click(function () {
+            window.sessionStorage.isSuccess = "false";
+            location.href = "{{ctx.request.query.referrer}}" || "/"
+        })
+
+        if (window.sessionStorage.isSuccess == "true") {
+            window.sessionStorage.isSuccess = "false";
+            location.href = "{{ctx.request.query.referrer}}" || "/";
+        }
+    })
+</script> {% endblock %}

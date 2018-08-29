@@ -1,0 +1,320 @@
+.nav .container{
+    width: 1000px;
+    height: 58px;
+    margin: 0 auto;
+}
+.nav .container .sdf{
+    margin-top: 40px;
+
+}
+.nav .container .sdf li{
+   float: left;
+   margin-left: 20px;
+   display: block;
+   width: 182px;
+   height: 58px;
+   line-height: 58px;
+   text-align: center;
+   border: 1px solid #bfbfbf;
+   font-size: 20px;
+   color: #a0a0a0;
+   cursor: pointer;
+}
+.nav .container .sdf li:nth-child(1){
+    margin-left: 0;
+ }
+ .nav .container .sdf li.active{
+    background: #c5271f;
+    color: white;
+    border: none;
+ 
+} 
+/* .nav .container ul li a{
+    display: block;
+    width: 182px;
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+    border: 1px solid #bfbfbf;
+    font-size: 20px;
+    color: #a0a0a0;
+
+
+
+}
+.nav .container ul li a.activeeeee{
+    background: #c5271f;
+    color: white;
+} */
+
+
+
+.car {
+    display: none;
+}
+.current{
+    display: block;
+}
+.contentarr{
+    margin-top: 83px;
+    height: 290px;
+    
+}
+.contentarr .container .left{
+    padding-top: 30px;
+float: left;
+width: 50%;
+}
+.contentarr .container .left p {
+    text-indent: 2em;
+    font-size: 22px;
+    color: #333333;
+}
+.contentarr .container .rightc{
+    float: left;
+    width: 50%;
+    /* clear: both; */
+
+}
+.df{
+    clear: both;
+margin-top: 52px;
+height: 385px;
+clear: both;
+}
+
+
+
+
+/*第二部*/
+
+
+.main{
+    margin-top: 65px;
+ background: #fff;
+ height: 480px;
+
+}
+.main .container{
+    position: relative;
+    background: #fff;
+}
+.main .title{
+    position: absolute;
+    left: 0;
+    top:0;
+    font-size: 48px;
+    color: #c52620;
+    margin-top: 65px;
+    margin-left: 304px;
+}
+.main .container .main_left{
+    float: left;
+    width: 406px;
+
+}
+.main .container .main_left .mian_bottom {
+    text-indent: 2em;
+    font-size: 14px;
+    color: #2b2b2b;
+
+}
+.main .container .main_left .mian_bottom h3{
+    font-size: 40px;
+    color: #2b2b2b;
+    margin-top: 15px;
+}
+.main .container .main_left .mian_bottom .p1{
+    margin-top: 20px;
+}
+.content{
+   height: 648px;
+    background: #f8f8f8;
+    margin-top: 50px;
+}
+.content .container .con{
+width: 309px;
+float: left;
+    margin-top: 60px;
+    margin-left: 23px;
+}
+
+.content .container .con .title{
+    height: 45px;
+    line-height: 45px;
+}
+.content .container .con .title span{
+    float: left;
+    display: block;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    color: #2b2b2b;
+    padding-left: 15px;
+    color: #c42520;
+}
+.content .container .con .menu{
+   margin-top: 35px;
+
+}
+.content .container .con .menu ul{
+    width: 309px;
+}
+.content .container .con .menu ul li{
+    width: 309px;
+    /*line-height: 25px;*/
+    float: left;
+   
+   
+}
+.content .container .con .menu ul li a{
+    color: #2b2b2b;
+    /* text-indent: 50em; */
+    font-size: 14px;
+    cursor: default;
+
+}
+
+.content .container .con .menu ul li a i {
+    color: #c42520;
+    display: block;
+    width: 10px;
+    height: 10px;
+    float: left;
+    
+    
+}
+.content .container .con .menu ul li a span {
+    float: left;
+    width: 270px;
+    padding-left: 6px;
+}
+.contr{
+    float: left;
+    margin-left: 10px;
+}
+
+
+
+/* 第三部 */
+
+.wenzi {
+    margin-top: 30px;
+}
+.wenzi .container h4{
+    font-size: 27px;
+    font-weight: bold;
+}
+.wenzi .container p{
+    font-size: 14px;
+    color: #333333;
+}
+.wenzi .container .img{
+    width: 1000px;
+    height: 530px;
+    margin: 0 auto;
+    margin-top: 74px;
+}
+
+/* 领导成员 */
+
+.chengyuan .container .mingyu{
+  
+    margin-top: 0px;
+    height: 270px;
+}
+.chengyuan .container .kk{
+    margin-top: 64px;
+}
+.chengyuan .container .mingyu .titlte{
+clear: both;
+    font-size: 22px;
+    color: #333333;
+    height: 40px;
+    padding-left: 15px;
+
+    }
+    .chengyuan .container .mingyu .wenzi{
+        clear: both;
+
+    }
+.chengyuan .container .mingyu .jieshao_car{
+
+    width: 500px;
+    float: left;
+  height: 237px;
+}
+
+
+
+.chengyuan .container .mingyu .img{
+    width: 168px;
+    height: 196px;
+}
+
+.chengyuan .container .mingyu .rouese {
+    float: left;
+    margin-left: 27px;
+    width: 216px;
+    overflow: hidden;
+
+}
+.chengyuan .container .mingyu .rouese span{
+    display: block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #c52620;
+    border-radius: 3px;
+    color: white;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+
+
+.chengyuan .container .mingyu .rouese p{
+    margin-top: 20px;
+} 
+
+
+
+
+
+
+
+
+/* 常务理事 */
+
+.material .title{
+height: 64px;
+line-height: 64px;
+padding-left: 15px;
+font-size: 22px;
+color: #333333;
+}
+.material .table table .th{
+    width: 100%;
+    height: 70px;
+    background: #dddddd;
+}
+.material .table table td {
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+    font-size: 16px;
+    color: #333333;
+}
+.material .table table tr td:nth-child(1) {
+    width: 217px;
+    
+}
+.material .table table tr td:nth-child(2) {
+
+width: 496px;
+}
+.material .table table tr td:nth-child(3) {
+width: 275px;
+}

@@ -1,0 +1,422 @@
+{% extends "../common/base.html" %}
+
+{% block title %}
+{{data.thisObj.title}}
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/public/css/activity.css">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- 内容 -->
+<div class="content">
+    <p>您的位置：<a href="/">首页</a>><a href="/static/1school">商学院</a>><a
+            href="/activity/list?typeName={{data.thisObj.typeName}}">{{data.thisObj.typeName}}</a>>{{data.thisObj.typeName}}详情
+    </p>
+    <div class="wrap">
+        <div class="wrap-details">
+            <div class="wrap-details-img">
+                <img src="{{data.thisObj.cover}}" alt="" width="100%" height="100%">
+            </div>
+            <div class="wrap-details-txt">
+                <h2>{{data.thisObj.title}}</h2>
+                <p class="details-fang"><span>主题：</span>{{data.thisObj.topic}}</p>
+                <p class="details-time"><span>时间：</span>{{data.thisObj.beginTime}} ～ {{data.thisObj.endTime}}
+                </p>
+                <p class="details-add"><span>地点：</span>{{data.thisObj.address}}</p>
+                <p class="details-curr"><span>规模：</span>{{data.thisObj.scale}}</p>
+                <button class="start">我要报名</button>
+            </div>
+            <div class="wrap-img">
+                <img src="/public/img/nokais.png" alt="">
+            </div>
+        </div>
+
+        {% if data.videoObj.url %}
+        <div class="vide">
+            <h3>精彩集锦</h3>
+            <div class="shipin">
+                <div id="video" class="videoBox" style="width:600px;height:400px"></div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="wrap-cont">
+            {{data.thisObj.introduction|safe}}
+        </div>
+
+        {% if data.albumList.length>0 %}
+        <div class="currimg">
+            <h3>现场图片</h3>
+            <div class="banner">
+                <div id="warpper">
+                    <div class="container">
+                        <!-- 图片区域 -->
+                        <ul class="imgList">
+                            {% for item in data.albumList %}
+
+                            <li><img src="{{item.url}}" width="100%" height="100%" alt=""></li>
+
+                            {% endfor %}
+                        </ul>
+                        <div class="kongzhi">
+                            <span class="kongzhi-left"><</span>
+                            <span class="kongzhi-right">></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!--<div class="wrap-bom">-->
+            <!--<span>培训咨询热线：400-6585-000</span>-->
+            <!--<span>报名邮箱：shichang@weimengyungu.cn</span>-->
+            <!--<span>联系时间：周一至周五9：30-18：00</span>-->
+        <!--</div>-->
+
+    </div>
+    <div class="share">
+        <ul>
+            <!--暂不需要-->
+            <!--<li>-->
+                <!--<a href="">-->
+                    <!--<span>微博</span>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--暂不需要-->
+            <li>
+                <a href="">
+                    <span>微信</span>
+                    <div class="right-xia">
+                        <div class="right-xia-img" id="wxpyq_qrcode">
+
+                        </div>
+                        <div class="right-xia-txt">
+                            <h4>用微信扫二维码</h4>
+                            <p>分享至好友和朋友圈</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <script type="text/javascript">
+                    (function () {
+                        var p = {
+                            url: location.href, /*获取URL，可加上来自分享到QQ标识，方便统计*/
+                            title: '{{data.thisObj.title}}', /*分享标题(可选)*/
+                            summary: '{{data.thisObj.description | trim() | replace("\n","")}}', /*分享摘要(可选)*/
+                            style: '201',
+                            width: 32,
+                            height: 32
+                        };
+                        var s = [];
+                        for (var i in p) {
+                            s.push(i + '=' + encodeURIComponent(p[i] || ''));
+                        }
+                        document.write(['<a class="qcShareQQDiv" href="http://connect.qq.com/widget/shareqq/index.html?', s.join('&'), '" target="_blank"><span>QQ好友</span></a>'].join(''));
+                    })();
+                </script>
+            </li>
+            <li>
+                <script type="text/javascript">
+                    (function () {
+                        var p = {
+                            url: location.href, /*获取URL，可加上来自分享到QQ标识，方便统计*/
+                            title: '{{data.thisObj.title}}', /*分享标题(可选)*/
+                            summary: '{{data.thisObj.description | trim() | replace("\n","")}}', /*分享摘要(可选)*/
+                            showcount: '0', /*是否显示分享总数,显示：'1'，不显示：'0' */
+                            style: '201',
+                            width: 39,
+                            height: 39
+                        };
+                        var s = [];
+                        for (var i in p) {
+                            s.push(i + '=' + encodeURIComponent(p[i] || ''));
+                        }
+                        document.write(['<a version="1.0" class="qzOpenerDiv" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?', s.join('&'), '" target="_blank"><span>QQ空间</span></a>'].join(''));
+                    })();
+                </script>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<!--/  内容 -->
+
+
+<!-- 侧边导航 -->
+<div class="right">
+    <ul>
+        <li>
+            <span class="weixin"><img src="../public/img/weixin.png" alt="" width="" height=""></span>
+            <div class="right-xia">
+                <h5>微信号</h5>
+                <p>关注我们</p>
+                <img src="../public/img/tuowei_03.png" alt="" width="94px" height="94px">
+            </div>
+        </li>
+        <li>
+            <span class="photo"><img src="../public/img/photo.png" alt="" width="" height=""></span>
+            <div class="right-xia" style="width: 120px;">
+                <h5>400-658-5000</h5>
+            </div>
+        </li>
+        <li>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=3205429301&site=qq&menu=yes" target="_blank">
+                <span class="qq"><img src="/public/img/qq.png" alt="" width="" height=""></span>
+            </a>
+        </li>
+        <li>
+            <a href="https://weibo.com/u/6571912532">
+                <span class="weibo"><img src="../public/img/weibo.png" alt="" width="" height=""></span>
+            </a>
+        </li>
+        <li class="top">
+			<span class="fanhui">
+				<img src="../public/img/top.png" alt="" width="" height="">
+			</span>
+        </li>
+
+    </ul>
+</div>
+<!--/  侧边导航 -->
+
+
+<!-- 报名信息弹窗 -->
+<div class="signup">
+
+</div>
+<div class="signup-iform">
+    <p>报名信息<img class="stop" src="/public/img/x.png" alt="" width="100%" height="100%"></p>
+    <form action="">
+        <div class="form-lab">
+            <label>姓名</label><input type="text" class="username" name="user">
+        </div>
+        <div class="form-lab">
+            <label>电话号码</label><input type="number" class="userphone" name="user">
+        </div>
+        <div class="btn">
+            <button type="button" class="stop">取消</button>
+            <button type="button" class="tijiao" style="margin:0px;">确定</button>
+        </div>
+        <p>温馨提示：我们的工作人员会在一个工作日内与您联系,请注意400电话</p>
+    </form>
+
+</div>
+<!-- / 报名信息弹窗 -->
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript" src="/public/js/jquery.qrcode.min.js"></script>
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>;
+
+{% if data.videoObj.url %}
+<script>
+    var player = new TcPlayer('video', {
+        "mp4": "{{data.videoObj.url}}", //请替换成实际可用的播放地址
+        "autoplay": false,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
+        "coverpic": "{{data.videoObj.coverPicture}}",
+        "width": '720',
+        "height": '406'
+    })
+</script>
+{% endif %}
+<script>
+    function jishi(time1, time2) {
+        var date = new Date();
+        var star = Date.parse(time1.replace(/-/g, "/"));
+        var stop = Date.parse(time2.replace(/-/g, "/"));
+        // var t1 = date - star;
+        // var t2 = date - stop;
+        if (date < star) {
+            $(".wrap-img img").attr("src", "/public/img/nokais.png")
+        }
+        if (star < date && date < stop) {
+            $(".wrap-img img").attr("src", "/public/img/sta.png");
+            $(".start").attr("disabled", true).css({"background": "#b5b5b5", "color": "#7f7f7f"});
+        }
+        if (date > stop) {
+            $(".start").attr("disabled", true).css({"background": "#b5b5b5", "color": "#7f7f7f"});
+            $(".wrap-img img").attr("src", "/public/img/jieshu.jpg")
+        }
+    }
+
+    //
+    jishi("{{data.thisObj.beginTime}}", "{{data.thisObj.endTime}}");
+
+
+    $(".tijiao").click(function () {
+        var username = $(".username").val();
+        var userphone = $(".userphone").val();
+        var actid = "{{data.thisObj.id}}";
+        var nametex = /^[\u4e00-\u9fa5]+$/;
+        var phonetex = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if (username == "") {
+            alert("姓名不能为空")
+            return
+        }
+        else if (nametex.test(username) == false) {
+            alert("请输入正确的名字")
+            return
+        }
+        if (userphone == "") {
+            alert("电话号码不能为空")
+            return
+        }
+        else if (phonetex.test(userphone) == false) {
+            alert("请输入正确的电话号码")
+            return
+        }
+        $.ajax({
+            type: "get",
+            url: '/member/applicationAdd',
+            data: {
+                activityId: actid,
+                mobile: userphone,
+                name: username,
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data.code != 200) {
+                    alert(data.message)
+                    if (data.code == 403) {
+                        window.location.href = "/member/login"
+                    }
+                    return;
+                }
+                alert("报名申请成功！");
+                $(".signup").css(
+                    "display", "none"
+                );
+                $(".signup-iform").css(
+                    "display", "none"
+                );
+            },
+            error: function () {
+                alert("网络错误")
+            }
+        });
+    });
+
+
+    $(function () {
+
+        //分享朋友圈二维码
+        $("#wxpyq_qrcode").qrcode({
+            render: "canvas",
+            width: 78,
+            height: 78,
+            text: window.location.href
+        });
+
+        //弹出报名框
+        $(".start").click(function () {
+            if ($("#memcenter").length == 0) {
+                window.location.href = "/member/login"
+                return
+            }
+            $(".signup").css(
+                "display", "block"
+            );
+            $(".signup-iform").css(
+                "display", "block"
+            );
+        })
+        $(".stop").click(function () {
+            $(".signup").css(
+                "display", "none"
+            );
+            $(".signup-iform").css(
+                "display", "none"
+            );
+        });
+// 弹出信息
+        $(".share ul li a").hover(function () {
+            $(this).children(".right-xia").show();
+
+        }, function () {
+            $(this).children(".right-xia").hide();
+
+        });
+
+
+// //弹出信息
+//         $(".wrap-details-txt p").hover(function () {
+//             $(this).children("span").show();
+//
+//         }, function () {
+//             $(this).children("span").hide();
+//         });
+// 研修课程看图器
+
+        var cur = 0;    //当前的图片序号
+        imgLen = $(".imgList li").length;  //获取图片的数量
+        $(".kongzhi-left").click(function () {
+            cur = cur > 0 ? (--cur) : 0;
+            changeTo(cur);
+        });
+
+//点击向右图标根据cur进行上一个图片处理
+        $(".kongzhi-right").click(function () {
+            $(".imgList").width(imgLen * 250);
+            cur = cur < (imgLen - 4) ? (++cur) : imgLen - 4;
+            changeTo(cur);
+        });
+
+//图片切换函数
+        function changeTo(num) {
+            var go = num * 250;
+            $(".imgList").animate({"left": -go});
+        }
+
+// 点击图标弹出信息
+        $(".right ul li").hover(function () {
+            $(this).children(".right-xia").show();
+            $(this).children(".weixin").text("关注微信");
+            $(this).find("span").css({"padding": "8px", "background-color": "#c52620"});
+            $(this).children(".photo").text("联系电话");
+            $(this).children(".photo").css({"padding": "8px", "background-color": "#c52620"});
+            $(this).find(".weibo").text("官方微博");
+            $(this).find(".weibo").css({"padding": "8px", "background-color": "#c52620"});
+            $(this).find(".qq").text("在线客服");
+            $(this).find(".qq").css({"padding": "8px", "background-color": "#c52620"});
+            $(this).children(".fanhui").text("返回顶部");
+            $(this).children(".fanhui").css({"padding": "8px", "background-color": "#c52620"});
+        }, function () {
+            $(this).children(".right-xia").hide();
+            $(this).find("span").css({"padding": "0px", "background-color": "rgba(57,57,57,0.8)"});
+            $(this).children(".weixin").html('<img src="../public/img/weixin.png" alt="" width="" height="">');
+            $(this).children(".photo").html('<img src="../public/img/photo.png" alt="" width="" height="">');
+            $(this).find(".weibo").html('<img src="../public/img/weibo.png" alt="" width="" height="">');
+            $(this).find(".qq").html('<img src="../public/img/qq.png" alt="" width="" height="">');
+
+            $(this).children(".fanhui").html('<img src="../public/img/top.png" alt="" width="" height="">');
+        })
+
+//点击top回到页面最顶端
+        $(".top").click(function () {
+            $("html,body").animate({scrollTop: 0}, 500);
+        });
+        $(window).scroll(function () {
+            var heit = $(document).scrollTop();
+            var win = $(window).height();
+            if (heit > win) {
+                $(".right .top").fadeIn();
+                $(".right .ind").fadeIn();
+            }
+            else if (heit = win) {
+                $(".right .top").fadeOut();
+                $(".right .ind").fadeOut();
+            }
+        })
+
+
+    })
+
+</script>
+{% endblock %}

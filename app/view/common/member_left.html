@@ -1,0 +1,36 @@
+<div class="menu">
+    <ul class="clearfix">
+        <li>
+            <a href="javascript:;" class="{% if typeName %}one_actcar{% endif %} one">
+                <!--  <i>
+                    <img src="../images/huiyuan/01.jpg">
+                 </i> -->报名管理</a>
+            <ol class="item first" {% if typeName %}style="display:block;"{% endif %}>
+                <li>
+                    <a href="/member/applicationList?typeName=%e5%9f%b9%e8%ae%ad" {% if typeName=="培训" %}class="cartu"{% endif %}>培训报名</a>
+                    <a href="/member/applicationList?typeName=%e4%bc%9a%e8%ae%ae" {% if typeName=="会议" %}class="cartu"{% endif %}>会议报名</a>
+                    <a href="/member/applicationList?typeName=%e8%ae%ba%e5%9d%9b" {% if typeName=="论坛" %}class="cartu"{% endif %}>论坛报名</a>
+                </li>
+            </ol>
+        </li>
+
+        <li>
+            <a href="javascript:;" class="two {% if typeName==null %}two_actcar{% endif %}">
+                <!--  <i>
+                     <img src="../images/huiyuan/huiyuan_06.jpg">
+                 </i> -->会员信息</a>
+            <ol class="item f huiyuan" {% if typeName==null %}style="display:block;"{% endif %}>
+                <li>
+                    <a href="/member/detail" {% if ctx.request.url=="/member/detail" %}class="cartu"{% endif %}>基本信息</a>
+                    <a href="/member/modifer" {% if ctx.request.url=="/member/modifer" %}class="cartu"{% endif %}>密码修改</a>
+                </li>
+            </ol>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+

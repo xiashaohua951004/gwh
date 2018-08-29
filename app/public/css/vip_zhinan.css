@@ -1,0 +1,58 @@
+.titan .container h6{
+    font-size: 22px;
+    color: #333333;
+    height: 87px;
+    line-height: 87px;
+}
+.titan .container .contet span{
+    display: block;
+    padding: 0 10px;
+    text-align: center;
+    width: 110px;
+    line-height: 30px;
+    height: 30px;
+    background: #c52620;
+    color: white;
+}
+.titan .container .contet~.contet{
+    margin-top: 40px;
+}
+.titan .container .contet p {
+    text-indent: 2em;
+    line-height: 26px;
+}
+.content {
+    width: 100%;
+}
+.data{
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.data ul{
+    overflow: hidden;
+}
+.data>ul>li{
+    float: left;
+    text-align: center;
+    margin-right: 18px;
+}
+.data ul li a{
+    display: block;
+    width: 185px;
+    height: 61px;
+    line-height: 61px;
+    font-size: 22px;
+    color: #a0a0a0;
+    border: 1px solid #bfbfbf;
+}
+.data>ul>li:last-child{
+    margin: 0;
+}
+.data ul li .acti{
+    background-color: #c52620;
+    color: #ffffff;
+    border: none;
+
+}

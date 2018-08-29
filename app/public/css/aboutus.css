@@ -1,0 +1,94 @@
+@charset "utf-8";
+/*----------------------------内容-------------------------*/
+
+.about{width: 1000px; margin: 0 auto;margin-top:20px;margin-bottom:100px;}
+.a_content-nav{display: inline-block;vertical-align:top; width:180px;height: 100%;padding-top: 8px;}
+.a_content-nav ul li{display: block;position: relative; width: 100%;height:55px;line-height: 55px;padding-left:17px;  font-size: 18px;border-bottom: 1px solid #c8c8c8;}
+.content-click{background-color: #c52620;color: #ffffff;}
+.a_content-nav ul li:after{content: ">";  /*:before和:after必带技能，重要性为满5颗星*/
+        display: block;
+        font-size: 24px;
+        color: #ffffff;
+        position: absolute;  /*日常绝对定位*/
+        bottom:-20px;
+        width: 0;
+        height: 0;
+        right:36px;
+        top:0px;
+}
+.a_content-nav ul li:hover{
+    cursor: pointer;
+}
+.content-con{display: inline-block;width: 816px;margin-left: -4px;margin-bottom: -4px; padding: 0 40px 30px 40px;overflow: hidden;  }
+.car{
+    display: none;
+}
+.car>h3{
+    line-height: 46px;
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+}
+.xiaoxie{width: 140px;text-align: center;color: #999999;margin-bottom: 36px;}
+.list>li{font-size: 14px;width: 100%;line-height: 38px;}
+.list{width: 100%;}
+.list>li a{
+    display: inline-block;
+    vertical-align: top;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 656px;
+    font-size: 14px;
+    }
+.women-txt h4{
+    font-size: 24px;width: 100%;
+    padding-left: 96px;
+    padding-top: 9px;
+    margin-bottom: 38px;
+    background-image: url(../img/dou.png);
+    background-repeat: no-repeat;
+    background-size: 45px 40px;
+    background-position: 30px center;
+}
+.women-txt p{line-height: 34px;font-size: 16px;text-indent: 2em;color: #333333;}
+.shengming-txt p{padding-bottom: 10px;}
+.shengming-txt p span{font-size: 16px;color: #333333;line-height: 30px;}
+.span-left{display: inline-table;}
+.span-txt{display: inline-table; width: 704px;}
+
+.lianxi-txt>p{font-size:18px;color: #333333; line-height: 44px;}
+.map-txt{padding-top: 30px;padding-bottom: 10px; text-align: center;}
+.lianxi-txt>img{display: block; width: 730px;height: 420px;margin: 0 auto;}
+
+.map-con h4{
+    font-size: 18px;
+    color:#c52620 ;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    background: url("../img/map_to.png") no-repeat 162px 24px ;
+}
+.map-con>ul>li{
+    display: inline-block;
+}
+.map-con>ul>li>a{
+    display: block;
+    width: 104px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    border: 1px solid #c52620;
+    border-radius: 4px;
+    margin-right: 4px;
+}
+.map-con>ul>li>a:hover{
+    background-color: #c52620;
+    color: #ffffff;
+}
+.content-con .current{
+    display: block;
+}
+.a_content-nav ul li .active{
+    background-color: #c52620;
+}

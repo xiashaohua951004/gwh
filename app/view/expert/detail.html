@@ -1,0 +1,181 @@
+{% extends "../common/base.html" %}
+
+{% block title %}
+{{data.thisObj.name}}
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/public/css/Expertdetails.css">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="content">
+    <div class="wrap">
+        <p>您的位置：<a href="index.html">首页</a>><a href="/static/datacenter">数据中心</a>><a href="/expert/list">专家库</a>>专家主页
+        </p>
+        <div class="content-txt">
+            <div class="content-txt-top">
+                <h2>{{data.thisObj.name}}</h2>
+                <p>时间：{{data.thisObj.addtime}}<span></span>来源：<span>{{data.thisObj.source}}</span></p>
+            </div>
+            <div class="content-txt-on">
+                <div class="content-txt-on-img">
+                    <span class="jiben">基本信息</span>
+                    <div class="txt-img">
+                        <img src="{{data.thisObj.avator}}" alt="" width="100%" height="100%">
+                    </div>
+                    <div class="txt-info">
+                        <div class="txt-fo">
+                            <p><span>姓名：</span>{{data.thisObj.name}}</p>
+                            <p><span>职位/职称：</span>{{data.thisObj.position}}</p>
+                            {% if data.thisObj.class2 %}
+                            <p><span>研修班：</span>{{data.thisObj.class2}}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="content-details">
+                    <!-- <div class="owt">
+                        <h2>基本信息</h2>
+
+                    </div> -->
+                    {% if data.thisObj.professionalField %}
+                    <div class="owt">
+                        <h2>主讲课程</h2>
+                        {{data.thisObj.professionalField|safe}}
+                    </div>
+                    {% endif %}
+                    <div class="owt">
+                        <h2>人物介绍</h2>
+
+                        {{data.thisObj.detailIntro|safe}}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="share">
+            <ul>
+                <!--暂不需要-->
+                <!--<li>-->
+                <!--<a href="">-->
+
+                <!--<span>微博</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--暂不需要-->
+                <li>
+                    <a href="">
+                        <span>微信</span>
+                        <div class="right-xia">
+                            <div class="right-xia-img" id="wxpyq_qrcode">
+
+                            </div>
+                            <div class="right-xia-txt">
+                                <h4>用微信扫二维码</h4>
+                                <p>分享至好友和朋友圈</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <script type="text/javascript">
+                        (function () {
+                            var p = {
+                                url: location.href, /*获取URL，可加上来自分享到QQ标识，方便统计*/
+                                title: '{{data.thisObj.title}}', /*分享标题(可选)*/
+                                summary: '{{data.thisObj.intro | trim() | replace("\n","") }}', /*分享摘要(可选)*/
+                                style: '201',
+                                width: 32,
+                                height: 32
+                            };
+                            var s = [];
+                            for (var i in p) {
+                                s.push(i + '=' + encodeURIComponent(p[i] || ''));
+                            }
+                            document.write(['<a class="qcShareQQDiv" href="http://connect.qq.com/widget/shareqq/index.html?', s.join('&'), '" target="_blank"><span>QQ好友</span></a>'].join(''));
+                        })();
+                    </script>
+                </li>
+                <li>
+                    <script type="text/javascript">
+                        (function () {
+                            var p = {
+                                url: location.href, /*获取URL，可加上来自分享到QQ标识，方便统计*/
+                                title: '{{data.thisObj.title}}', /*分享标题(可选)*/
+                                summary: '{{data.thisObj.intro | trim() | replace("\n","") }}', /*分享摘要(可选)*/
+                                showcount: '0', /*是否显示分享总数,显示：'1'，不显示：'0' */
+                                style: '201',
+                                width: 39,
+                                height: 39
+                            };
+                            var s = [];
+                            for (var i in p) {
+                                s.push(i + '=' + encodeURIComponent(p[i] || ''));
+                            }
+                            document.write(['<a version="1.0" class="qzOpenerDiv" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?', s.join('&'), '" target="_blank"><span>QQ空间</span></a>'].join(''));
+                        })();
+                    </script>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+    <!-- baneer -->
+    <!--培训活动引入-->
+    {% include "../common/activity_recom.html" %}
+    <!--培训活动引入-->
+    <!-- baneer -->
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="/public/js/jquery.qrcode.min.js"></script>
+<script>
+    $(function () {
+
+        $(".headline_ido").slide({effect: "scrollx", seamless: "true", auto: true,});
+
+        $(window).scroll(function () {
+            var heit = $(document).scrollTop();
+            var su = $(".retail-banner")[0].offsetTop;
+
+            if (heit > su) {
+                $(".tie").css({
+                    "position": "fixed",
+                    "top": "0px",
+                })
+            }
+            else if (heit = su) {
+                $(".tie").css({
+                    "position": "static",
+
+                })
+            }
+        });
+        //分享朋友圈二维码
+        $("#wxpyq_qrcode").qrcode({
+            render: "canvas",
+            width: 78,
+            height: 78,
+            text: window.location.href
+        });
+
+        // 弹出信息
+        $(".share ul li a").hover(function () {
+            $(this).children(".right-xia").show();
+
+        }, function () {
+            $(this).children(".right-xia").hide();
+
+        });
+    })
+
+</script>
+{% endblock %}

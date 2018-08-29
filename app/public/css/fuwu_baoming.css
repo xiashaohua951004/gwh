@@ -1,0 +1,418 @@
+.nav_tab {
+}
+.container{
+    overflow: hidden;
+}
+.nav_tab .container .menu {
+    margin-top: 40px;
+    float: left;
+    width: 196px;
+    border: 1px solid #d6d6d6;
+    background: #fff;
+
+}
+
+.nav_tab .container .menu li a {
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    color: #333333;
+    font-size: 22px;
+    cursor: pointer;
+}
+.one{
+
+    background: url("/public/img/huiyuan/01.jpg") no-repeat 20px center;
+}
+.two{
+    background: url("/public/img/huiyuan/03.jpg") no-repeat 20px center;
+}
+.one_actcar {
+ 
+    background: url("/public/img/huiyuan/02.jpg") no-repeat 20px center;
+    color: #c42520!important;
+}
+.two_actcar {
+    color: #c42520!important;
+    background: url("/public/img/huiyuan/04.jpg") no-repeat 20px center;
+}
+
+/*.nav_tab .container .menu li a i{
+    margin-right: 10px;
+
+}*/
+
+.nav_tab{
+    margin-bottom: 60px;
+}
+.nav_tab .container .menu li .item {
+    width: 100%;
+    height: 200px;
+    display: none;
+
+}
+
+.nav_tab .container .menu li .f {
+    height: 143px;
+}
+
+.nav_tab .container .menu li .item li a {
+    font-size: 16px;
+    color: #333333;
+    border-left: none;
+}
+
+.nav_tab .container .menu li .item li a.cartu {
+    border-left: none;
+    color: #cc5450;
+}
+
+.nav_tab .container .right_car {
+    float: right;
+    width: 780px;
+    margin-left: 20px;
+    background: #fff;
+    margin-top: 40px;
+
+}
+
+.nav_tab .container .right_car .concar {
+    display: none;
+    position: relative;
+}
+
+.nav_tab .container .right_car .acv {
+    display: block;
+}
+
+.nav_tab .container .right_car .thead {
+    background: #dddddd;
+}
+
+.nav_tab .container .right_car table tr td {
+    box-sizing: border-box;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+    font-size: 15px;
+    padding:14px 20px;
+    min-width: 120px;
+}
+
+.nav_tab .container .right_car table tr td:nth-child(1) {
+    width: 200px;
+    text-overflow: ellipsis;
+    text-decoration: underline;
+}
+.nav_tab .container .right_car table tr td:last-child{
+    text-decoration: underline;
+}
+.nav_tab .container .right_car .thead th td:nth-child(1) {
+    text-decoration: none;
+}
+
+.nav_tab .container .right_car table tr td:nth-child(2) {
+
+    width: 340px;
+
+}
+
+.nav_tab .container .right_car .pagere {
+    width: 440px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.nav_tab .container .right_car .pagere ul li {
+    float: left;
+    width: 40px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border: 1px solid #ccc;
+    margin-left: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.nav_tab .container .right_car .pagere ul li.current {
+    background: #c5271f;
+    color: white;
+}
+
+/* 会员基本信息start */
+
+.nav_tab .container .information .data .title {
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    color: #333333;
+    border-bottom: 1px solid #ccc;
+    padding-left: 15px;
+
+}
+
+.nav_tab .container .information .data .xinxi {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #333333;
+    letter-spacing: 2px;
+    padding-left: 15px;
+}
+.nav_tab .container .information .data{
+    position: relative;
+}
+.nav_tab .container .information .data .xinxi i {
+    margin-right: 10px;
+}
+.nav_tab .container .information .data .tips{
+
+    position: absolute;
+    left: 50%;
+
+    margin-left: -200px;
+  width: 400px;
+    height: 40px;
+    text-align: center;
+
+
+}
+
+
+
+
+.tips p {
+  
+    width: 386px;
+    line-height: 45px;
+    height: 45px;
+    margin: 0 auto;
+    color: #e49069;
+    display: none;
+    background-color: #fff8db;
+    border: 1px solid  #ffd87a;
+    margin-left: 50px;
+    border-radius: 4px;
+}
+
+
+
+
+
+.nav_tab .container .information .vv {
+    display: block;
+}
+
+.nav_tab .container .information .pl {
+    margin-top: 40px;
+    color: #c62820;
+}
+
+.nav_tab .container .information .password {
+    width: 520px;
+    margin: 0 auto;
+}
+
+.nav_tab .container .information .password ul li {
+    height: 70px;
+    line-height: 70px;
+}
+
+.nav_tab .container .information .password ul li span {
+    font-size: 14px;
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    width: 100px;
+    text-align: center;
+
+}
+
+.nav_tab .container .information .password ul li.li2 {
+    margin-top: 35px;
+}
+
+.nav_tab .container .information .password ul li.li1 input {
+    display: block;
+    float: left;
+    width: 386px;
+    height: 45px;
+    margin-left: 12px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+}
+
+.nav_tab .container .information .password ul li.li2 input {
+    display: block;
+    float: left;
+    width: 386px;
+    height: 45px;
+    margin-left: 12px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.nav_tab .container .information .password ul li.li2 i {
+    display: block;
+    width: 118px;
+    height: 45px;
+    overflow: hidden;
+    float: left;
+    /* background: url("../images/password_03.jpg") no-repeat 0 0; */
+    margin-left: 10px;
+    border-radius: 4px;
+}
+
+.nav_tab .container .information .password ul li.li2 .em {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.nav_tab .container .information .password .btn button {
+    
+    width: 392px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    line-height: 48px;
+    margin: 0 auto;
+    background: #c5271f;
+    border: none;
+    font-size: 14px;
+    color: white;
+    letter-spacing: 3px;
+    border-radius: 5px;
+    margin-left: 110px;
+}
+
+/* 会员基本信息 */
+
+/* 查看详情 */
+.nav_tab .container .xiang {
+    display: none;
+}
+.nav_tab .container .reslt1{
+    display: block;
+}
+.nav_tab .container .xiang .title {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+    font-size: 22px;
+    color: #333333;
+
+}
+
+.nav_tab .container .xiang .title span {
+
+    color: #c5271f;
+}
+
+.nav_tab .container .xiang .newlist {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    background: #c5271f;
+    margin-top: 30px;
+
+}
+
+.nav_tab .container .xiang .content p {
+    font-size: 16px;
+    color: #333333;
+    margin-top: 30px;
+}
+
+.success{
+     color: #2196f3;
+ }
+.error{
+    color: #cc5450;
+}
+
+
+
+
+
+
+/* 遮罩层 */
+.mask {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.mask .password_1 {
+    width: 434px;
+    height: 196px;
+    background: #e5e5e5;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -217px;
+    margin-top: -98px;
+
+}
+
+.mask .password_1 .login {
+    width: 420px;
+    height: 182px;
+    border: 1px solid #bababa;
+    background: #fff;
+    margin: auto;
+    margin-top: 8px;
+
+}
+
+.mask .password_1 .login .title {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.mask .password_1 .login .title .off {
+    display: block;
+    width: 35px;
+    height: 21px;
+    background: url("../img/f_03.jpg") no-repeat;
+    cursor: pointer;
+}
+
+.mask .password_1 .login .success {
+    width: 126px;
+    height: 46px;
+    margin: 0 auto;
+
+}
+
+.mask .password_1 .login .shroutre h5 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #333333;
+
+}
+.dd{
+    position: absolute;
+    left: 50%;
+    margin-left: -85px;
+
+    top: 113px;
+    width: 172px;
+    height: 147px;
+   background: url("../img/1general/tt.jpg") no-repeat;
+}

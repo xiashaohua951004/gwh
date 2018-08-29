@@ -1,0 +1,46 @@
+{% extends "../common/base.html" %}
+{% block title %}商学院{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="/public/css/base.css">
+<link rel="stylesheet" href="/public/css/nav2.css"> 
+<link rel="stylesheet" href="/public/css/1school.css"> {% endblock %} {% block content %}
+        <div class="nav">
+
+                <div class="container">
+        
+                    <ul class="ul clearfix">
+                        <li>
+                            <a href="/static/1school" target="_blank" class="active">商学院</a>
+                        </li>
+                        <li>
+                            <a href="/activity/list?typeName=%e5%9f%b9%e8%ae%ad">培训</a>
+                        </li>
+                        <li>
+                            <a href="/activity/list?typeName=%e4%bc%9a%e8%ae%ae">会议</a>
+                        </li>
+                        <li>
+                            <a href="/activity/list?typeName=%e8%ae%ba%e5%9d%9b">论坛</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+<div class="mian">
+    <div class="container clearfix">
+    <div class="leftt">
+        <p> 商学院立足于打造中国零售业学科学术平台，旨在培养在信息化、国际化、开放化时代从事零售业研究工作和营销管理的高端人才。</p>
+        <p>商学院以“创造管理知识、传播管理思想”为理念，致力于培养学生的“竞争能力、自信心、合作精神、创造性和诚信”。</p>
+        <p>未来, 我们面对的是一个高度竞争的国内、国际市场。<span>我们的目标是培养中国与全球的商业领袖和社会领导者，</span>成为中国与世界零售业管
+                理的思想和知识的发源地，为中国企业和社会提供优质与个性化的管理教育，
+                为校友提供一个优秀的终身教育平台。</p>
+    </div>
+    <div class="rightt"><img src="/public/img/school_03.jpg"> </div>
+</div>
+
+</div>
+
+{% endblock %}

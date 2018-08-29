@@ -1,0 +1,76 @@
+{% extends "../common/base.html" %}
+
+{% block title %}
+行业人才智库
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/public/css/Expertlist.css">
+{% endblock %}
+
+
+{% block content %}
+<!-- 内容 -->
+<div class="content">
+    <div class="wrap">
+        <p>您的位置：<a href="/">首页</a>><a href="/static/datacenter">数据中心</a>>行业人才智库</p>
+        <div class="content-txt">
+            <ul>
+                {% for item in data.thisPage.list %}
+                <li>
+                    <div class="content-txt-img">
+                        <a href="/trainee/detail?id={{item.tid}}">
+                            <img src="{{item.avator}}" alt="" width="100%" height="100%">
+                        </a>
+                    </div>
+                    <div class="content-txt-introduce">
+                        <h3><a href="/trainee/detail?id={{item.tid}}">{{item.name}}</a></h3>
+                        <h4>{{item.position}}</h4>
+                        <p class="clampjs">{{item.introduction|truncate(40)}}</p>
+                        <span><a href="/trainee/detail?id={{item.tid}}">MORE>></a></span>
+                    </div>
+                </li>
+                {% else %}
+                <li>无数据</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!--培训活动引入-->
+    {% include "../common/activity_recom.html" %}
+    <!--培训活动引入-->
+</div>
+<!--分页-->
+{% include "../common/page.html" %}
+<!--分页-->
+<!--/  内容 -->
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $(function () {
+
+        $(".headline_ido").slide({effect: "scrollx", seamless: "true", auto: true,});
+
+        $(window).scroll(function(){
+            var heit= $(document).scrollTop();
+            var su=$(".retail-banner")[0].offsetTop;
+
+            if(heit>su){
+                $(".tie").css({
+                    "position":"fixed",
+                    "top":"0px",
+                })
+            }
+            else if(heit=su){
+                $(".tie").css({
+                    "position":"static",
+
+                })
+            }
+        })
+    })
+
+
+</script>
+{% endblock %}

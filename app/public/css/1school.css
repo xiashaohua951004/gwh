@@ -1,0 +1,30 @@
+.mian{
+    height: 420px;
+    /* clear: both; */
+} 
+
+
+.mian .container .leftt{
+float: left;
+width: 500px;
+margin-top: 60px;
+}
+.mian .container .leftt p {
+    text-indent: 2em;
+
+font-size: 14px;
+color: #2b2b2b;
+}
+.mian .container .leftt p span{
+    color: #c52620;
+    font-weight: bold;
+}
+.mian .container .leftt p~p{
+    margin-top: 20px;
+
+}
+.mian .container .rightt{
+   float: left;
+padding-top: 30px;
+    margin-top: 60px;
+}

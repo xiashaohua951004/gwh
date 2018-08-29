@@ -1,0 +1,354 @@
+{% extends "common/base.html" %}
+
+{% block title %} 零售业市场秩序管理专业委员会 {% endblock %}
+
+{% block style %}
+<meta name="keywords" content="零售业,市场秩序,电商,社交电商,微商,市场监督,市场管理,零售协会">
+<link rel="stylesheet" href="/public/css/style.css">
+{% endblock %}
+
+{% block content %}
+<!--content-->
+<div class="content">
+    <!--banner-->
+    <div class="banner">
+        <div class="slide ido">
+            <div class="content">
+                <ul class="j_slideLists">
+                    {% for item in data.board5List %}
+                    <li>
+                        <a href="{{item.linkUrl|default('javascript:;',true)}}" style="background-image: url('{{item.image}}')"></a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="btn">
+                <a href="javascript:void(0);" target="_self" class="btnPrev j_slidePrev"></a>
+                <a href="javascript:void(0);" target="_self" class="btnNext j_slideNext"></a>
+            </div>
+        </div>
+        <div class="search">
+            <form action="">
+                <input type="text" placeholder="请输入身份证号码或证书编号查询" value="" class="zhengshu">
+                <button type="button" class="search_btn">证书查询</button>
+            </form>
+        </div>
+    </div>
+    <!--banner-->
+
+    <!--vip-->
+    <div class="vip">
+        <p class="vip-top">会员服务</p>
+        <div class="vip-service">
+            <div class="vip-left">
+                <div class="vip-left-top">
+                    <p>会员权益</p>
+                </div>
+                <a href="/static/vip_ser">
+                    <img src="/public/img/vip-quanyi.png" alt="" width="440px" height="270px">
+                </a>
+            </div>
+            <div class="vip-right">
+                <div class="vip-right-top">
+                    <p>会员指南</p>
+                </div>
+                <a href="/static/vip_zhinan">
+                    <img src="/public/img/vip-zhinan.png" alt="" width="440px" height="270px">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--vip-->
+    <!--school-->
+    <div class="school">
+        <div class="school-button">
+            <div class="school-xiangqing">
+                <a href="/static/1school">查看详情</a>
+            </div>
+        </div>
+    </div>
+    <!--school-->
+    <!--bang-->
+    <div class="bang">
+        <h3>红黑榜</h3>
+        <div class="bang-left">
+            <h4>红榜</h4>
+            <ul class="bang-left-ul">
+                {% for item in data.news82List %}
+                <li>
+                    <div class="ul-left">
+                        <a href="/news/detail?id={{item.newsId}}">
+                            <img src="{{item.titlePic}}" alt="" width="100%" height="100%">
+                        </a>
+                    </div>
+                    <div class="ul-right">
+                        <h5><a href="/news/detail?id={{item.newsId}}">{{item.title}}</a></h5>
+                        <p>{{item.intro}}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <p class="dianji"><a href="/news/list?columnId=82">查看更多>></a></p>
+        </div>
+        <div class="bang-right">
+            <h4>黑榜</h4>
+            <ul class="bang-left-ul">
+                {% for item in data.news83List %}
+                <li>
+                    <div class="ul-left">
+                        <a href="/news/detail?id={{item.newsId}}">
+                            <img src="{{item.titlePic}}" alt="" width="100%" height="100%">
+                        </a>
+                    </div>
+                    <div class="ul-right">
+                        <h5><a href="/news/detail?id={{item.newsId}}">{{item.title}}</a></h5>
+                        <p>{{item.intro|truncate(20)}}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <p class="dianji"><a href="/news/list?columnId=83">查看更多>></a></p>
+        </div>
+    </div>
+    <!--bang-->
+    <!--news-->
+    <div class="news">
+        <div class="news-content">
+            <div class="news-content-left">
+                <h3>政务信息<a href="/news/list?columnId=79">查看更多>></a></h3>
+                <div class="left-banner">
+                    <div class="slide left-ido">
+                        <div class="content">
+                            <ul class="j_slideLists">
+                                {% for item in data.news79List %}
+                                <li>
+                                    <a href="/news/detail?id={{item.newsId}}"><img src="{{item.titlePic}}" width="100%"
+                                                                                   height="100%" alt=""/></a>
+                                    <span class="text">{{item.title}}</span>
+                                </li>
+
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="tag">
+                            <ul class="j_slideTags">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="news-content-right">
+                <h3>管委会动态<a href="/news/list?columnId=78">查看更多>></a></h3>
+                <div class="news-content-right-txt">
+                    <ul>
+
+                        {% for item in data.news78List %}
+                        <li>
+                            <a href="/news/detail?id={{item.newsId}}">{{item.title}}</a>
+                            <span>{{item.pushtime}}</span>
+                        </li>
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--news-->
+
+    <!--&lt;!&ndash;vip-user&ndash;&gt;-->
+    <!--<div class="vip-user">-->
+    <!--<h3>会员单位</h3>-->
+    <!--<p><a href="/news/list?columnId=85">查看更多>></a></p>-->
+    <!--<div class="vip-user-con">-->
+    <!--<ul>-->
+    <!--{% for item in data.news85List %}-->
+    <!--<li>-->
+    <!--<a href="/news/detail?id={{item.newsId}}">-->
+    <!--<img src="{{item.titlePic}}" alt="" width="100%" height="207px">-->
+    <!--<h5>{{item.title|truncate(20)}}</h5>-->
+    <!--<p>{{item.intro|truncate(20)}}</p>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--{% endfor %}-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;vip-user&ndash;&gt;-->
+
+    <!--zhuanjiaku-->
+    <div class="zhuanjiaku">
+        <div class="zjk-con">
+            <div class="zjk-con-top">
+                <p>专家库</p><a href="/expert/list">查看更多>></a>
+                <!--暂时不需要-->
+                <!--<div class="industry-top">-->
+                <!--<ul>-->
+                <!--<li><a href="/trainee/list">行业人才智库</a></li>-->
+                <!--<li><a href="/static/data_ziyuan">资源库</a></li>-->
+                <!--<li><a href="/static/data_xiangmu">项目库</a></li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--暂时不需要-->
+            </div>
+            <div class="expert">
+                <ul>
+                    {% for item in data.expertsList %}
+                    <li>
+                        <a href="/expert/detail?id={{item.eid}}">
+                            <img src="{{item.topAvator}}" width="100%" height="100%" alt="">
+                        </a>
+                        <div class="expert-txt">
+                            <h5>{{item.name}}</h5>
+                            <p>{{item.position}}</p>
+                        </div>
+                        <div class="txt" style="display: none;">
+                            <a href="/expert/detail?id={{item.eid}}" class="txt-on">{{item.intro|truncate(100)}}</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--zhuanjiaku-->
+</div>
+<!--content-->
+
+<!-- 侧边导航 -->
+<div class="right">
+    <ul>
+        <li>
+            <span class="weixin"><img src="/public/img/weixin.png" alt="" width="" height=""></span>
+            <div class="right-xia">
+                <h5>微信号</h5>
+                <p>关注我们</p>
+                <img src="/public/img/tuowei_03.png" alt="" width="94px" height="94px">
+            </div>
+        </li>
+        <li>
+            <span class="photo"><img src="/public/img/photo.png" alt="" width="" height=""></span>
+            <div class="right-xia" style="width: 120px;">
+                <h5>400-658-5000</h5>
+            </div>
+        </li>
+        <li>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=3205429301&site=qq&menu=yes" target="_blank">
+                <span class="qq"><img src="/public/img/qq.png" alt="" width="" height=""></span>
+            </a>
+        </li>
+        <li>
+            <a href="https://weibo.com/u/6571912532">
+                <span class="weibo"><img src="/public/img/weibo.png" alt="" width="" height=""></span>
+            </a>
+        </li>
+        <li class="top">
+			<span class="fanhui">
+				<img src="/public/img/top.png" alt="" width="" height="">
+			</span>
+        </li>
+
+    </ul>
+</div>
+<!--/  侧边导航 -->
+{% endblock %}
+
+{% block script %}
+<script>
+    $(function () {
+
+
+        $(".search_btn").click(function () {
+            var zheng = $(".zhengshu").val();
+
+            $.ajax({
+                type: "get",
+                url: '/cert/search',
+                data: {
+                    keyword: zheng
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data.code != 200) {
+                        alert("身份证或证书编号输入错误")
+                    }
+                    else {
+                        window.location.href = "/cert/detail?id=" + data.data.thisObj.id
+                    }
+                },
+                error: function () {
+                    alert("身份证或证书编号输入错误")
+                }
+            });
+
+        });
+
+        $(".ido").slide({effect: "scrollx", seamless: "true", auto: true,});
+
+        $(".left-ido").slide({effect: "fade", seamless: "true", auto: true,});
+
+        (function () {   //左右切换
+            $(".slide").hover(function () {
+                $(".btnPrev").show();
+                $(".btnNext").show();
+            }, function () {
+                $(".btnPrev").hide();
+                $(".btnNext").hide();
+            })
+        })();
+
+
+        (function () {  //右侧导航
+
+            $(".right ul li").hover(function () {
+                $(this).children(".right-xia").show();
+                $(this).children(".weixin").text("关注微信");
+                $(this).find("span").css({"padding": "8px", "background-color": "#c52620"});
+                $(this).children(".photo").text("联系电话");
+                $(this).children(".photo").css({"padding": "8px", "background-color": "#c52620"});
+                $(this).find(".weibo").text("官方微博");
+                $(this).find(".weibo").css({"padding": "8px", "background-color": "#c52620"});
+                $(this).find(".qq").text("在线客服");
+                $(this).find(".qq").css("background-color", "#c52620");
+                $(this).children(".fanhui").text("返回顶部");
+                $(this).children(".fanhui").css({"padding": "8px", "background-color": "#c52620"});
+            }, function () {
+                $(this).children(".right-xia").hide();
+                $(this).find("span").css({"padding": "0px", "background-color": "rgba(57,57,57,0.8)"});
+                $(this).children(".weixin").html('<img src="/public/img/weixin.png" alt="" width="" height="">');
+                $(this).children(".photo").html('<img src="/public/img/photo.png" alt="" width="" height="">');
+                $(this).find(".weibo").html('<img src="/public/img/weibo.png" alt="" width="" height="">');
+                $(this).find(".qq").html('<img src="/public/img/qq.png" alt="" width="" height="">');
+                $(this).children(".fanhui").html('<img src="/public/img/top.png" alt="" width="" height="">');
+            });
+            //点击top回到页面最顶端
+            $(".top").click(function () {
+                $("html,body").animate({scrollTop: 0}, 500);
+            });
+
+
+            $(".expert ul li").hover(function () {
+                $(this).children(".txt").show();
+
+            }, function () {
+                $(this).children(".txt").hide();
+            })
+
+
+            $(window).scroll(function () {
+                var heit = $(document).scrollTop();
+                var win = $(window).height();
+                if (heit > win) {
+                    $(".right .top").fadeIn();
+                }
+                else if (heit = win) {
+                    $(".right .top").fadeOut();
+                }
+            })
+        })();
+
+    });
+</script>
+{% endblock %}

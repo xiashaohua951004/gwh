@@ -1,0 +1,169 @@
+@charset "utf-8";
+a:hover {
+    color: #c52620;
+}
+/*content*/
+.content {
+    width: 100%;
+}
+
+/*data页面*/
+.data{
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 39px;
+}
+.data ul{
+    overflow: hidden;
+}
+.data ul li{
+    float: left;
+    text-align: center;
+    margin-right: 18px;
+}
+.data ul li a{
+    display: block;
+    width: 185px;
+    height: 61px;
+    line-height: 61px;
+    font-size: 22px;
+    color: #a0a0a0;
+    border: 1px solid #bfbfbf;
+}
+.data>ul>li:last-child{
+    margin: 0;
+}
+.data .data-txt{
+    margin-top: 80px;
+    margin-bottom: 274px;
+}
+.data .data-txt h2 i{
+    width: 100%;
+    font-size: 60px;
+    color: #c52620;
+    padding-left: 40px;
+}
+.data-txt .shuju{
+    padding-left: 320px;
+    position: relative;
+    background: url("../img/san.png") no-repeat ;
+    background-position: 312px 108px;
+    padding-bottom: 60px;
+    margin-top: 20px;
+}
+.data-txt .shuju p{
+    text-indent:2em;
+    color: #2d2d2d;
+}
+.data-txt .shuju h3{
+    font-size: 58px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*data 页面 */
+
+/*ziyuan页面*/
+.ziyuan{
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+.ziyuan>h3{
+    font-size: 36px;
+    height: 74px;
+    line-height: 74px;
+    background: url("../img/data-ziyuan.png") no-repeat 328px center ;
+}
+.ziyuan .zy_jieshao{
+    overflow: hidden;
+    padding: 38px 0;
+    height: 391px;
+    border-bottom: 1px dashed #ebebeb;
+}
+.ziyuan .zy_jieshao:last-child{
+    border: none;
+}
+.ziyuan .zy_jieshao .zy_left{
+    float: left;
+    width: 500px;
+    height: 100%;
+}
+.ziyuan .zy_jieshao .zy_right{
+    width: 500px;
+    float: right;
+    height: 100%;
+}
+.ziyuan .zy_jieshao .zy_right p,.ziyuan .zy_jieshao .zy_right h5{
+    padding-left: 38px;
+}
+.ziyuan .zy_jieshao .zy_left p,.ziyuan .zy_jieshao .zy_left h5{
+    padding-right: 38px;
+}
+.ziyuan .zy_txt{
+    position: relative;
+}
+.ziyuan .zy_txt .zy_txt_cen{
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+.ziyuan .zy_txt .zy_txt_cen h5{
+    font-size: 22px;
+    padding-bottom: 20px;
+}
+.ziyuan .zy_txt .zy_txt_cen p{
+    line-height: 22px;
+    text-indent:2em;
+}
+/*ziyuan页面*/
+
+/*xiangmu*/
+
+.xiangmu{
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+.xiangmu>h3{
+    font-size: 36px;
+    height: 74px;
+    line-height: 74px;
+    background: url("../img/data-ziyuan.png") no-repeat 328px center ;
+}
+.xiangmu>p{
+    color: #2d2d2d;
+    line-height: 20px;
+    margin-top: 20px;
+    text-indent: 2em;
+}
+.xiangmu>ul>li{
+    width:297px;
+    height: 170px;
+    margin-top: 42px;
+    margin-left: 18px;
+    margin-right: 18px;
+    position: relative;
+}
+.xiangmu>ul>li>p{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height:  170px;
+    text-align: center;
+    top: 0;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: rgba(22,50,92,0.7);
+}
+/*xiangmu*/
+/*content*/
+.data ul li .acti{
+    background-color: #c52620;
+    color: #ffffff;
+    border: none;
+}

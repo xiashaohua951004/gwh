@@ -1,0 +1,100 @@
+{% extends "../common/base.html" %}
+
+{% block title %}
+{{data.columnObj.columnName}}
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/public/css/headline.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- 内容 -->
+<div class="content">
+    <div class="wrap">
+
+        <p>您的位置：
+            <a href="/">首页</a>
+            {% if data.parentColumnObj %}
+            {% if data.parentColumnObj.columnId==84 %}
+            ><a href="/static/vip_ser">{{data.parentColumnObj.columnName}}</a>
+            {% else %}
+            ><a href="/news/list?columnId={{data.parentColumnObj.columnId}}">{{data.parentColumnObj.columnName}}</a>
+            {% endif %}
+            {% endif %}
+            >{{data.columnObj.columnName}}
+        </p>
+        <div class="content-txt">
+            <ul>
+                {% for item in data.thisPage.list %}
+                <li>
+                    <div class="content-txt-right">
+                        <a href="/news/detail?id={{item.newsId}}" target="_blank">
+                            <img src="{{item.titlePic}}" alt="" width="100%" height="100%">
+                        </a>
+                    </div>
+                    <div class="content-txt-left">
+                        <div class="content-txt-left-child">
+                        <h3>
+                            <a href="/news/detail?id={{item.newsId}}" target="_blank">
+                                {{item.title|truncate(60)}}
+                            </a>
+                        </h3>
+                        <!--{% if item.intro %}-->
+                        <!--<p class="clampjs">{{item.intro|truncate(60)}}</p>-->
+                        <!--{% else %}-->
+                        <!--<p></p>-->
+                        <!--{% endif %}-->
+                        <p style="margin:0px;line-height:20px;height: 20px">时间：<span>{{item.pushtime}}</span></p>
+                        </div>
+                    </div>
+                    </a>
+                </li>
+                {% else %}
+                <div class="wushuju">
+
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!--培训活动引入-->
+    {% include "../common/activity_recom.html" %}
+    <!--培训活动引入-->
+</div>
+<!--分页-->
+{% include "../common/page.html" %}
+<!--分页-->
+
+<!--/  内容 -->
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $(function () {
+
+        $(".headline_ido").slide({effect: "scrollx", seamless: "true", auto: true,});
+
+        $(window).scroll(function () {
+            var heit = $(document).scrollTop();
+            var su = $(".retail-banner")[0].offsetTop;
+
+            if (heit > su) {
+                $(".tie").css({
+                    "position": "fixed",
+                    "top": "0px",
+                })
+            }
+            else if (heit = su) {
+                $(".tie").css({
+                    "position": "static",
+
+                })
+            }
+        })
+    })
+
+</script>
+{% endblock %}

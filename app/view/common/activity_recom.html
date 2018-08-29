@@ -1,0 +1,28 @@
+<!-- baneer -->
+<div class="retail-banner">
+    <div class="tie">
+        <p>商学院</p>
+        <div class="banner">
+            <div class="slide headline_ido">
+                <div class="content">
+                    <ul class="j_slideLists">
+                        {% for item in data.boardItemList %}
+                        <li>
+                            <a href="{{item.linkUrl|default('javascript:;',true)}}"><img src="{{item.image}}" width="100%" height="100%" alt=""/></a>
+                            <span class="text">{{item.description}}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="tag">
+                    <ul class="j_slideTags">
+                        <li class="">1</li>
+                        <li class="">2</li>
+                        <li class="current">3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- baneer -->

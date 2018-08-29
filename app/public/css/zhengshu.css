@@ -1,0 +1,143 @@
+.contront{
+margin-bottom: 30px;
+}
+
+.contront .container {
+
+    width: 770px;
+
+    margin: 0 auto;
+    margin-top: 57px;
+}
+
+.contront .container .search {
+    width: 718px;
+    height: 50px;
+    margin: 0 auto;
+
+}
+
+.contront .container div input {
+    float: left;
+    width: 570px;
+    border: 1px solid #ccc;
+    height: 50px;
+    border-radius: 6px;
+    padding-left: 15px;
+    overflow: hidden;
+    border-top-right-radius:inherit;
+    border-bottom-right-radius:inherit;
+
+    height: 50px;
+}
+
+.contront .container div .btn {
+    display: block;
+    width: 129px;
+    float: left;
+    line-height: 50px;
+    height: 50px;
+    background: #c52620;
+    text-align: center;
+    color: white;
+    margin-left: 0px;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 6px;
+    border-top-left-radius:inherit;
+    border-bottom-left-radius:inherit;
+
+}
+
+.contront .container .zhengshu {
+    margin-top: 60px;
+    width: 770px;
+    height: 547px;
+    overflow: hidden;
+    position: relative;
+}
+
+.contront .container .zhengshu span {
+    display: block;
+    width: 100px;
+    height: 20px;
+    /* background: red; */
+    position: absolute;
+    color: #333333;
+
+}
+.contront .container .zhengshu span:nth-child(1) {
+    left: 324px;
+    top: 168px;
+}
+.contront .container .zhengshu span:nth-child(2) {
+
+    left: 560px;
+    top: 168px;
+}
+
+.contront .container .zhengshu span:nth-child(3) {
+
+    left: 336px;
+    top: 190px;
+
+}
+
+.contront .container .zhengshu span:nth-child(4) {
+
+    left: 350px;
+    top: 211px;
+
+}
+
+.contront .container .zhengshu span:nth-child(5) {
+
+    left: 350px;
+    top: 233px;
+}
+
+.contront .container .zhengshu span:nth-child(6) {
+
+    left: 178px;
+    top: 417px;
+}
+
+.contront .container .zhengshu span:nth-child(7) {
+
+    left: 512px;
+    top: 426px;
+
+}
+
+.contront .container .zhengshu span:nth-child(8) {
+
+    width: 74px;
+    height: 94px;
+    background: red;
+    left: 116px;
+    top: 159px;
+
+}
+
+.contront .container .suoy {
+    margin-top: 50px;
+}
+
+.contront .container .suoy p {
+
+    line-height: 30px;
+    padding-left: 20px;
+
+}
+
+.btn_fo {
+    margin-top: 10px;
+    float: right;
+}
+
+.btn_fo a {
+    color: blue;
+}
+.suoy{
+    margin-top: 45px;
+}

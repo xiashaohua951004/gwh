@@ -1,0 +1,170 @@
+{% extends "../common/base.html" %}
+
+{% block title %} 关于我们 {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/public/css/aboutus.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- 内容 -->
+<div class="about">
+    <div class="a_content-nav">
+        <ul>
+            <li class="active">关于我们</li>
+            <li id="tt">网站声明</li>
+            <li id="pp">网站地图</li>
+            <li id="oo">联系我们</li>
+        </ul>
+    </div>
+    <div class="content-con">
+        <div class="car current" id="zz">
+            <h3>关于我们</h3>
+            <p class="xiaoxie">About Us</p>
+            <section class="women-txt">
+                <p>零售业市场秩序管理专业委员会旨在贯彻落实党中央国务院创新驱动发展战略，推动企业数字化改造及
+                    零售业创新发展，深化落实中华人民共和国总书记习近平同志在全国网络安全和信息化工作会议上的重要讲话，以提高行业标准、规范
+                    行业秩序、重构行业逻辑和行为，塑造健康可持续发展的零售业生态环境为使命。</p>
+                <p>通过管委会组织机构，面向全国零售业开展精英培训、会员服务、法务支持、信用背书、企业创新智能转型扶持等工作。</p>
+            </section>
+        </div>
+        <div class="car" id="xx">
+            <h3>网站声明</h3>
+            <p class="xiaoxie">Disclaimer</p>
+            <section class="shengming-txt">
+                <p><span class="span-left">1、</span><span class="span-txt">凡本网注明“来源：零售业市场秩序管理专业委员会”的所有文字、图片和音视频稿件，版权均属零售业市场秩序管理专业委员会及零售业市场秩序管理专业委员会官方网站所有，任何媒体、网站或个人如有需要链接转载或其它方式调用者，请注明摘自“零售业市场秩序管理专业委员会”或相关字样。</span>
+                </p>
+                <p><span class="span-left">2、</span><span class="span-txt">凡本网未注明“来源：零售业市场秩序管理专业委员会”的所有文字、图片和音视频等稿件均为转载稿，本网转载仅为提供更多信息和促进交流之目的，不代表同意其观点或证实其内容的真实性，不代表本站观点，仅供参考，我们不作任何承诺保证，不承担任何的责任。</span>
+                </p>
+                <p><span class="span-left">3、</span><span class="span-txt">任何单位或个人认为本官网内容可能涉嫌侵犯其合法权益，应及时向本站客服400-6585000投诉，并提供权属证明及详细侵权情况证明，本站将会尽快移除相关涉嫌侵权内容。</span>
+                </p>
+                <p><span class="span-left">4、</span><span class="span-txt">任何单位或个人不得未经允许使用零售业市场秩序管理专业委员会相关抬头，不得以零售业市场秩序管理专业委员会名义从事违法、有损公共道德或以满足个人利益为目的活动。一经发现，零售业市场秩序管理专业委员会保留法律追诉权利。 </span>
+                </p>
+            </section>
+        </div>
+        <div class="car" id="cc">
+            <h3>网站地图</h3>
+            <p class="xiaoxie">Website Map</p>
+            <section class="map-con">
+                <a href="/static/gwhgk"><h4>管委会概况</h4></a>
+                <ul>
+                    <li><a href="/static/gwhgk?id=2">管委会简介</a></li>
+                    <!--<li><a href="/static/gwhgk?id=3">领导成员</a></li>-->
+                    <li><a href="/static/gwhgk?id=4">组织架构</a></li>
+                    <!--<li><a href="/static/gwhgk?id=5">常务理事</a></li>-->
+                </ul>
+                <a href="/news/list?columnId=77&all"><h4>管委会资讯</h4></a>
+                <ul>
+                    <li><a href="/news/list?columnId=78">管委会动态</a></li>
+                    <li><a href="/news/list?columnId=79">政务信息</a></li>
+                    <!--<li><a href="/news/list?columnId=80">管委会活动</a></li>-->
+                </ul>
+                <!--<a href="/news/list?columnId=82&all"><h4>红黑榜</h4></a>-->
+                <!--<ul>-->
+                <!--<li><a href="/news/list?columnId=82">红榜</a></li>-->
+                <!--<li><a href="/news/list?columnId=83">黑榜</a></li>-->
+                <!--</ul>-->
+                <a href="/static/datacenter"><h4>数据中心</h4></a>
+                <ul>
+                    <!--<li><a href="/trainee/list">行业人才智库</a></li>-->
+                    <li><a href="/expert/list">专家库</a></li>
+                    <!--<li><a href="/static/data_ziyuan">资源库</a></li>-->
+                    <!--<li><a href="/static/data_xiangmu">项目库</a></li>-->
+                </ul>
+                <a href="/static/1school"><h4>商学院</h4></a>
+                <ul>
+                    <li><a href="/activity/list?typeName=%e5%9f%b9%e8%ae%ad">培训</a></li>
+                    <li><a href="/activity/list?typeName=%e4%bc%9a%e8%ae%ae">会议</a></li>
+                    <li><a href="/activity/list?typeName=%e8%ae%ba%e5%9d%9b">论坛</a></li>
+                </ul>
+                <a href="/static/vip_ser"><h4>会员服务</h4></a>
+                <ul>
+                    <!--<li><a href="/news/list?columnId=85">会员单位</a></li>-->
+                    <li><a href="/static/vip_zhinan">服务指南</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class="car" id="vv">
+            <h3>联系我们</h3>
+            <p class="xiaoxie">Contact Us</p>
+            <section class="lianxi-txt">
+                <p>地址：北京市朝阳区高碑店兴隆中街6号院</p>
+                <p>电话：400-658-5000</p>
+                <!--<p>联系邮箱：xuna_dx@163.com</p>-->
+                <p class="map-txt">乘坐地铁到高碑店地铁站A1口出详细线路如下所示</p>
+                <img src="../public/img/map_03.png" alt="">
+            </section>
+        </div>
+    </div>
+</div>
+<!--/  内容 -->
+
+{% endblock %}
+
+{% block script %}
+<script>
+
+
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+        return (false);
+    }
+
+    var ff = getQueryVariable("id")
+    $(function () {
+
+        $(".a_content-nav ul li").on("click", function () {
+            $(this).addClass('active').siblings().removeClass("active");
+            $(".car").eq($(this).index()).show().siblings().hide();
+        });
+
+        if (ff == 2) {
+            $(".a_content-nav ul li").removeClass("active");
+            $("#tt").addClass('active')
+            $("#zz").hide()
+            $("#xx").hide()
+            $("#vv").hide()
+            $("#cc").hide()
+            $("#xx").show();
+
+        }
+        if (ff == 3) {
+
+            $(".a_content-nav ul li").removeClass("active");
+            $("#pp").addClass('active')
+
+            $("#zz").hide()
+            $("#xx").hide()
+            $("#vv").hide()
+            $("#bb").hide()
+            $("#cc").show()
+        }
+
+        if (ff == 4) {
+
+            $(".a_content-nav ul li").removeClass("active");
+            $("#oo").addClass("active");
+
+            $("#zz").hide()
+            $("#xx").hide()
+            $("#vv").hide()
+            $("#cc").hide()
+            $("#vv").show()
+        }
+    })
+</script>
+
+{% endblock %}
+
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+<!-- 分页 -->
+
+<div class="headline_paging">
+    {% if data.thisPage.pages > 1 %}
+    <div class="paging">
+        <div id="pager" data-page-count="{{data.thisPage.pages}}" data-page-total="{{data.thisPage.total}}" data-page-num="{{data.thisPage.pageNum}}"></div>
+    </div>
+    {% else %}
+        <div class="" style="padding: 60px 0">
+
+        </div>
+    {% endif %}
+</div>
+
+<!-- 分页 -->

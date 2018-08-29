@@ -1,0 +1,128 @@
+{% extends "../common/base.html" %}
+
+{% block title %}
+会员中心
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/public/css/base.css">
+<link rel="stylesheet" href="/public/css/fuwu_baoming.css"> 
+{% endblock %}
+{% block content %}
+<div class="nav_tab">
+    <div class="container clearfix">
+
+        <!--左侧菜单-->
+        {% include "../common/member_left.html" %}
+        <!--左侧菜单-->
+
+        <div class="right_car">
+            
+            <!-- 查看详情start -->
+            <div class="ponlist">
+                <div class="xiang reslt1">
+                    <div class="title">报名状态:
+                        <span>{{data.thisObj.status}}</span>
+                    </div>
+
+                    <div class="newlist">{{typeName}}信息</div>
+                    <div class="content">
+                        <p>{{typeName}}名称：{{data.thisObj.activity.title}}</p>
+                        <p>{{typeName}}开始-结束时间：{{data.thisObj.activity.beginTime}} - {{data.thisObj.activity.endTime}}</p>
+                        <p>地址：{{data.thisObj.activity.address}}</p>
+                        <p>举办方：{{data.thisObj.activity.organizer}}</p>
+                        <p>人数：{{data.thisObj.activity.numberOfPeople}}人</p>
+                    </div>
+
+                    <div class="newlist">报名信息</div>
+                    <div class="content">
+                        <p>姓名：{{data.thisObj.name}}</p>
+                        <p>电话号码：{{data.thisObj.mobile}}</p>
+                        <p>报名时间：{{data.thisObj.createTime}}</p>
+                    </div>
+                </div>
+
+
+                <div class="xiang reslt2">
+                    <div class="title">状态:
+                        <span>审核中</span>
+                    </div>
+
+                    <div class="newlist">会议信息</div>
+                    <div class="content">
+                        <p>培训名称：零售业市场秩序管理委员会第一期培训会</p>
+                        <p>培训开始-结束时间：2018-07-05 9:00-2018-07-08 15:00</p>
+                        <p>地址：北京市海淀区创业大街1号海洋大厦1栋4单元801室</p>
+                        <p>举办方：零售页市场秩序管理委员会</p>
+                        <p>人数：100人</p>
+                    </div>
+
+                    <div class="newlist">报名信息</div>
+                    <div class="content">
+                        <p>姓名：张三</p>
+                        <p>电话号码：13012345678</p>
+                        <p>报名时间：2018-07-05 9:00</p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="xiang reslt3">
+                    <div class="title">状态:
+                        <span>报名成功</span>
+                    </div>
+
+                    <div class="newlist">论坛信息</div>
+                    <div class="content">
+                        <p>培训名称：零售业市场秩序管理委员会第一期培训会</p>
+                        <p>培训开始-结束时间：2018-07-05 9:00-2018-07-08 15:00</p>
+                        <p>地址：北京市海淀区创业大街1号海洋大厦1栋4单元801室</p>
+                        <p>举办方：零售页市场秩序管理委员会</p>
+                        <p>人数：100人</p>
+                    </div>
+
+                    <div class="newlist">报名信息</div>
+                    <div class="content">
+                        <p>姓名：张三</p>
+                        <p>电话号码：13012345678</p>
+                        <p>报名时间：2018-07-05 9:00</p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- 查看详情end -->
+
+
+        </div>
+        <!-- 右边显示 -->
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+<script>
+    $(function () {
+        $(".one").on("click", function () {
+            $(this).addClass("one_actcar");
+            $(this).parent().siblings().children(".two").removeClass("two_actcar");
+            $(this).next().show().parent().siblings().find("ol").hide();
+
+        });
+
+        $(".two").on("click", function () {
+            $(this).addClass("two_actcar");
+            $(this).parent().siblings().children(".one").removeClass("one_actcar");
+            $(this).next().show().parent().siblings().find("ol").hide();
+        });
+    })
+</script>
+{% endblock %}

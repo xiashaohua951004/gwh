@@ -1,0 +1,197 @@
+{% extends "../common/base.html" %}
+
+{% block title %}
+{{typeName}}
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/public/css/activitylist.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- 内容 -->
+<div class="content">
+    <div class="wrap">
+        <p>您的位置：<a href="/">首页</a>><a href="/static/1school">商学院</a>>{{typeName}}</p>
+        <div class="content-txt">
+            <ul>
+                {% for item in data.thisPage.list %}
+                <li>
+                    <div class="content-txt-left">
+                        <a href="/activity/detail?id={{item.id}}"><img src="{{item.cover}}" alt="" width="100%"
+                                                                       height="100%"></a>
+                    </div>
+                    <div class="content-txt-right">
+                        <h2><a href="/activity/detail?id={{item.id}}">{{item.title}}</a></h2>
+                        <p class="details-time"><span>时间：</span>{{item.beginTime}} ～ {{item.endTime}}</p>
+                        <p class="details-add"><span>地点：</span>{{item.address}}</p>
+                        <p class="details-fang"><span>规模：</span>{{item.scale}}</p>
+                        <a class="sigup start" data-url="/activity/detail?id={{item.id}}" data-id="{{item.id}}"
+                           data-begintime="{{item.beginTime}}" data-endtime="{{item.endTime}}">立即报名</a>
+                    </div>
+                </li>
+                {% else %}
+                <div class="wushuju">
+
+                </div>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- baneer -->
+    <div class="retail-banner">
+        <p>智库<a href="/trainee/list">MORE>></a></p>
+        <div class="retail-tank">
+            <ul>
+                {% for item in data.traineeList %}
+                <li>
+                    <div class="retail-tank-left">
+                        <a href="/trainee/detail?id={{item.tid}}"><img src="{{item.avator}}" alt="" width="100%"
+                                                                       height="100%"></a>
+                    </div>
+                    <div class="retail-tank-right">
+                        <h3><a href="/trainee/detail?id={{item.tid}}">{{item.name}}</a></h3>
+                        <p class="clampjs">{{item.introduction|truncate(34)}}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- baneer -->
+</div>
+<!--/  内容 -->
+
+
+<!--分页-->
+{% include "../common/page.html" %}
+<!--分页-->
+
+<!-- 报名信息弹窗 -->
+<div class="signup">
+
+</div>
+<div class="signup-iform">
+    <p>报名信息<img class="stop" src="/public/img/x.png" alt="" width="100%" height="100%"></p>
+    <form action="">
+        <div class="form-lab">
+            <label>姓名</label><input type="text" class="username" name="username">
+        </div>
+        <div class="form-lab">
+            <label>电话号码</label><input type="text" class="userphone" name="userphone">
+        </div>
+        <div class="btn">
+            <button type="button" class="stop">取消</button>
+            <input type="hidden" name="activityId" id="activityId">
+            <button type="button" class="tijiao" style="margin:0px;">确定</button>
+        </div>
+        <p>温馨提示：我们的工作人员会在一个工作日内与您联系,请注意400电话</p>
+    </form>
+
+</div>
+<!-- / 报名信息弹窗 -->
+
+
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript">
+    $(function () {
+
+        $(".start").each(function () {
+            var $that = $(this);
+            var begintime = $(this).data("begintime");
+            var endtime = $(this).data("endtime");
+            var actiurl = $(this).data("url");
+            var date = new Date();
+            var star = new Date(Date.parse(begintime.replace(/-/g, "/")));
+            var stop = new Date(Date.parse(endtime.replace(/-/g, "/")));
+            if (date.getTime() > star.getTime()) {
+                $that.attr("href", actiurl).text("查看详情").removeClass("start");
+            }
+        });
+
+
+        $(".tijiao").click(function () {
+
+            var username = $(".username").val();
+            var userphone = $(".userphone").val();
+            var actid = $("#activityId").val();
+            var nametex = /^[\u4e00-\u9fa5]+$/;
+            var phonetex = /^[1][3,4,5,7,8][0-9]{9}$/;
+            if (username == "") {
+                alert("姓名不能为空")
+                return
+            }
+            else if (nametex.test(username) == false) {
+                alert("请输入正确的名字")
+                return
+            }
+            if (userphone == "") {
+                alert("电话号码不能为空")
+                return
+            }
+            else if (phonetex.test(userphone) == false) {
+                alert("请输入正确的电话号码")
+                return
+            }
+            $.ajax({
+                type: "get",
+                url: '/member/applicationAdd',
+                data: {
+                    activityId: actid,
+                    mobile: userphone,
+                    name: username,
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data.code != 200) {
+                        alert(data.message);
+                        if (data.code == 403) {
+                            window.location.href = "/member/login"
+                        }
+                        return
+                    }
+                    alert("报名申请成功！");
+                    $(".signup").css(
+                        "display", "none"
+                    );
+                    $(".signup-iform").css(
+                        "display", "none"
+                    );
+
+                },
+                error: function () {
+                    alert("网络错误")
+                }
+            });
+        });
+        //弹出报名框
+        $(".start").click(function () {
+            if ($("#memcenter").length == 0) {
+                window.location.href = "/member/login"
+                return
+            }
+            $("#activityId").val($(this).data("id"))
+            $(".signup").css(
+                "display", "block"
+            );
+            $(".signup-iform").css(
+                "display", "block"
+            );
+        })
+        $(".stop").click(function () {
+            $(".signup").css(
+                "display", "none"
+            );
+            $(".signup-iform").css(
+                "display", "none"
+            );
+        });
+    })
+</script>
+{% endblock %}

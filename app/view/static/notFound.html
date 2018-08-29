@@ -1,0 +1,123 @@
+{% extends "../common/base.html" %}
+
+{% block title %} 404 {% endblock %}
+
+{% block style %}
+<style>
+    .content {
+        width: 100%;
+        border-top: 1px solid #c52620;
+        padding-top: 84px;
+    }
+
+    .content-img {
+        width: 379px;
+        height: 152px;
+        margin: 0 auto;
+    }
+
+    .tishi {
+        width: 100%;
+        font-size: 24px;
+        text-align: center;
+        padding: 60px 0 30px 0;
+    }
+
+    .tishi > span {
+        color: red;
+        font-size: 24px;
+        margin: 0px 10px;
+        font-weight: 400;
+    }
+
+    .content > p {
+        color: #807c7c;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .content-button {
+        width: 100%;
+        text-align: center;
+        padding: 40px 0 160px 0;
+    }
+
+    .content-button > .back {
+        border-left: 2px solid #0a68b2;
+    }
+
+    .content-button > a, .content-button > button {
+        cursor: pointer;
+        background-color: #ffffff;
+        color: #0a68b2;
+        padding: 0 18px;
+        font-size: 18px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!--  内容 -->
+<div class="content">
+    <div class="content-img">
+        <img src="/public/img/404.png" alt="" width="100%" height="100%">
+    </div>
+    <h2 class="tishi">抱歉、您访问的页面不存在！<span class="son">5s</span>后将您带入网站首页</h2>
+    <p>Sorry, The page you visited doesn't exist!</p>
+    <p>The 5s will bring you to the homeepage of the website!</p>
+    <div class="content-button">
+        <a href="index.html">进入首页</a><a class="back">返回上一页</a>
+    </div>
+</div>
+
+<!--/  内容 -->
+{% endblock %}
+
+{% block script %}
+<script>
+
+
+    $(function () {
+
+//--------------------- 下拉菜单
+        $(".nav-ul li").hover(function () {
+            $(this).children(".xial").show();
+        }, function () {
+            $(this).children(".xial").hide();
+        })
+// 返回上一页
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+
+
+// 计时器
+        var son = $(".son");
+        var wait = 5;
+
+        function time(o) {
+            if (wait == 0) {
+                window.location.href = "/";
+            } else {
+                o.text(wait + "s");
+                wait--;
+
+                setTimeout(function () {
+                    time(o)
+                }, 1000)
+            }
+        }
+
+        time(son);
+
+    })
+
+
+</script>
+{% endblock %}
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+.nav .container{
+    width: 1000px;
+    height: 58px;
+    margin: 0 auto;
+}
+.nav .container ul{
+    margin-top: 40px;
+
+}
+.nav .container ul li{
+   float: left;
+   margin-left: 20px;
+}
+.nav .container ul li:nth-child(1){
+    margin-left: 0;
+ }
+
+.nav .container ul li a{
+    display: block;
+    width: 230px;
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+    border: 1px solid #bfbfbf;
+    font-size: 20px;
+    color: #a0a0a0;
+
+
+
+}
+.nav .container ul li a.active{
+    background: #c5271f;
+    color: white;
+    border: none;
+}

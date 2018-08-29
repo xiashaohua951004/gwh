@@ -1,0 +1,351 @@
+{% extends "../common/base.html" %}
+
+{% block title %}
+新闻列表
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/public/css/base.css">
+<link rel="stylesheet" href="/public/css/zhengshu.css"> 
+{% endblock %}
+{% block content %}
+<div class="nav_tab">
+    <div class="container clearfix">
+        <div class="menu">
+            <ul class="clearfix">
+                <li>
+                    <a href="javascript:;" class="one_actcar one">
+                        <!--  <i>
+                            <img src="../images/huiyuan/01.jpg">
+                         </i> -->报名管理</a>
+                    <ol class="item first">
+                        <li>
+                            <a href="javascript:void(0);" class="cartu">培训报名</a>
+                            <a href="javascript:void(0);">会议报名</a>
+                            <a href="javascript:void(0);">论坛报名</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <a href="javascript:;" class="two">
+                        <!--  <i>
+                             <img src="../images/huiyuan/huiyuan_06.jpg">
+                         </i> -->会员信息</a>
+                    <ol class="item f huiyuan">
+                        <li>
+                            <a href="javascript:void(0);">基本信息</a>
+                            <a href="javascript:void(0);">密码修改</a>
+
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="right_car">
+            <!-- 报名管理报名start -->
+
+            <div class="main">
+
+                <div class="concar acv">
+                    <table width="100%" border="0" cellspacing="0" align="center" border="1"
+                           style="border:1px solid #dddddd;">
+                        <tr class="thead">
+                            <td>培训名称</td>
+                            <td>培训开始-结束时间</td>
+                            <td>状态</td>
+                            <td>操作</td>
+                        </tr>
+                        <tr>
+                            <td><a href="">零售业行业秩序管理委零售业行业秩序管理委</a></td>
+                            <td>2018-07-10 9:00 — 2018-07-10 18:00</td>
+                            <td  class="chenggong">审核成功</td>
+                            <td>
+                                <a href="javascript:;" class="btn_fl">查看详情</a>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                    <!--<div class="pagere">-->
+                    <!--<ul class="clearfix">-->
+                    <!--<li class="current">1</li>-->
+                    <!--<li>2</li>-->
+                    <!--<li>3</li>-->
+                    <!--<li>4</li>-->
+                    <!--<span>....</span>-->
+                    <!--<li>20</li>-->
+                    <!--<li>下一页</li>-->
+                    <!--<li>尾页</li>-->
+                    <!--</ul>-->
+                    <!--</div>-->
+
+                </div>
+                <!-- 培训报名end-->
+
+
+                <!-- 会议报名start -->
+                <div class="concar">
+                    <table width="100%" border="0" cellspacing="0" align="center" border="1"
+                           style="border:1px solid #dddddd;">
+                        <tr class="thead">
+                            <td>会议名称</td>
+                            <td>会议开始-结束时间</td>
+                            <td>状态</td>
+                            <td>操作</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="">零售业行业秩序管理委 员会第一期培训会...</a>
+                            </td>
+                            <td>2018-07-10 9:00 — 2018-07-10 18:00</td>
+                            <td class="success">审核中</td>
+                            <td>
+                                <a href="javascript:;" class="btn_f2">查看详情</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!--<div class="pagere">-->
+                    <!--<ul class="clearfix">-->
+                    <!--<li class="current">1</li>-->
+                    <!--<li>2</li>-->
+                    <!--<li>3</li>-->
+                    <!--<li>4</li>-->
+                    <!--<span>....</span>-->
+                    <!--<li>20</li>-->
+                    <!--<li>下一页</li>-->
+                    <!--<li>尾页</li>-->
+                    <!--</ul>-->
+                    <!--</div>-->
+
+                </div>
+                <!-- 会议报名end-->
+
+
+                <!-- 论坛报名start -->
+                <div class="concar">
+                    <table width="100%" border="0" cellspacing="0" align="center" border="1"
+                           style="border:1px solid #dddddd;">
+                        <tr class="thead">
+                            <td>论坛名称</td>
+                            <td>论坛开始-结束时间</td>
+                            <td>状态</td>
+                            <td>操作</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <span>
+                                        <a href="#">零售业行业秩序管理委 员会第一期培训会...</a>
+                                    </span>
+                            </td>
+                            <td>2018-07-10 9:00 — 2018-07-10 18:00</td>
+                            <td  class="error">失败</td>
+                            <td>
+                                <a href="javascript:;" class="btn_f3">查看详情</a>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                    <!--<div class="pagere">-->
+                    <!--<ul class="clearfix">-->
+                    <!--<li class="current">1</li>-->
+                    <!--<li>2</li>-->
+                    <!--<li>3</li>-->
+                    <!--<li>4</li>-->
+                    <!--<span>....</span>-->
+                    <!--<li>20</li>-->
+                    <!--<li>下一页</li>-->
+                    <!--<li>尾页</li>-->
+                    <!--</ul>-->
+                    <!--</div>-->
+
+                </div>
+
+
+            </div>
+            <!-- 报名管理报报名end -->
+
+            <!-- 会员信息start -->
+            <div class="information">
+
+                <div class="data" id="vv">
+                    <div class="title">
+                        基本信息
+                    </div>
+
+                    <div class="xinxi">
+                        <i>
+                            <img src="../images/huiyuan/images/icon_03.jpg">
+                        </i>用户名:&nbsp;&nbsp;xingfuhuili
+                    </div>
+
+
+                    <div class="xinxi">
+                        <i>
+                            <img src="../images/huiyuan/images/icon_06.jpg">
+                        </i>公司名称:&nbsp;&nbsp;xingfuhuili
+                    </div>
+
+
+                    <div class="xinxi">
+                        <i>
+                            <img src="../images/huiyuan/images/icon_09.jpg">
+                        </i>负责人姓名:&nbsp;&nbsp;xingfuhuili
+                    </div>
+
+
+                    <div class="xinxi">
+                        <i>
+                            <img src="../images/huiyuan/images/icon_12.jpg">
+                        </i>负责人手机号:&nbsp;&nbsp;xingfuhuili
+                    </div>
+
+
+                    <div class="xinxi">
+                        <i>
+                            <img src="../images/huiyuan/images/icon_14.jpg">
+                        </i>联系人邮箱:&nbsp;&nbsp;xingfuhuili
+                    </div>
+
+
+                    <p class="pl">★温馨提示：会员信息已通过管委会审核，如需修改请咨询：400-000-0000</p>
+
+                </div>
+
+
+                <!-- 密码修改 -->
+
+                <div class="data">
+                    <div class="title">
+                        密码修改
+                    </div>
+
+                    <div class="password">
+                        <form action="">
+                            <ul>
+                                <li class="li2">
+                                    <span>旧密码</span>
+                                    <input type="text" placeholder="请输入旧密码" class="mobile">
+
+                                </li>
+                                <li class="li1">
+                                    <span>新密码</span>
+                                    <input type="text" placeholder="请输入密码" class="text4">
+                                </li>
+                                <li class="li1">
+                                    <span>确认新密码</span>
+                                    <input type="text" placeholder="请再次输入密码" class="text5">
+                                </li>
+                            </ul>
+                            <div class="btn">
+                                <button>确定</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!-- 会员信息end -->
+
+
+            <!-- 查看详情start -->
+            <div class="ponlist">
+                <div class="xiang reslt1">
+                    <div class="title">状态:
+                        <span>报名失败</span>
+                    </div>
+
+                    <div class="newlist">培训信息</div>
+                    <div class="content">
+                        <p>培训名称：零售业市场秩序管理委员会第一期培训会</p>
+                        <p>培训开始-结束时间：2018-07-05 9:00-2018-07-08 15:00</p>
+                        <p>地址：北京市海淀区创业大街1号海洋大厦1栋4单元801室</p>
+                        <p>举办方：零售页市场秩序管理委员会</p>
+                        <p>人数：100人</p>
+                    </div>
+
+                    <div class="newlist">报名信息</div>
+                    <div class="content">
+                        <p>姓名：张三</p>
+                        <p>电话号码：13012345678</p>
+                        <p>报名时间：2018-07-05 9:00</p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="xiang reslt2">
+                    <div class="title">状态:
+                        <span>审核中</span>
+                    </div>
+
+                    <div class="newlist">会议信息</div>
+                    <div class="content">
+                        <p>培训名称：零售业市场秩序管理委员会第一期培训会</p>
+                        <p>培训开始-结束时间：2018-07-05 9:00-2018-07-08 15:00</p>
+                        <p>地址：北京市海淀区创业大街1号海洋大厦1栋4单元801室</p>
+                        <p>举办方：零售页市场秩序管理委员会</p>
+                        <p>人数：100人</p>
+                    </div>
+
+                    <div class="newlist">报名信息</div>
+                    <div class="content">
+                        <p>姓名：张三</p>
+                        <p>电话号码：13012345678</p>
+                        <p>报名时间：2018-07-05 9:00</p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="xiang reslt3">
+                    <div class="title">状态:
+                        <span>报名成功</span>
+                    </div>
+
+                    <div class="newlist">论坛信息</div>
+                    <div class="content">
+                        <p>培训名称：零售业市场秩序管理委员会第一期培训会</p>
+                        <p>培训开始-结束时间：2018-07-05 9:00-2018-07-08 15:00</p>
+                        <p>地址：北京市海淀区创业大街1号海洋大厦1栋4单元801室</p>
+                        <p>举办方：零售页市场秩序管理委员会</p>
+                        <p>人数：100人</p>
+                    </div>
+
+                    <div class="newlist">报名信息</div>
+                    <div class="content">
+                        <p>姓名：张三</p>
+                        <p>电话号码：13012345678</p>
+                        <p>报名时间：2018-07-05 9:00</p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- 查看详情end -->
+
+
+        </div>
+        <!-- 右边显示 -->
+
+
+    </div>
+</div>
+{% endblock %}
